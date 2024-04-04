@@ -4,14 +4,18 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      lato: 'Lato, sans-serif;',
       jost: 'Jost, sans-serif;',
+      urbanist: "'Urbanist', sans-serif;",
+      readex: "'Readex Pro', sans-serif;",
     },
     extend: {
       colors: {
         teal: {
-          base: 'hsl(184, 60%, 83%)',
-          base2: 'hsl(184, 60%, 90%)',
+          base: {
+            700: 'hsl(184, 60%, 83%)',
+            400: 'hsl(184, 60%, 90%)',
+            200: 'hsl(184, 60%, 94%)',
+          },
         },
         text: {
           primary: 'hsla(0, 0%, 0%, 0.898)',
