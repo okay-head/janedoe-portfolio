@@ -1,13 +1,11 @@
-import Container from './components/Container'
 import Navbar from './components/navbar/Navbar'
+import Home from './pages/Home'
 
 export default function App() {
   return (
     <>
-      {/* <h1>App</h1> */}
-      <Container>
-        <Navbar />
-      </Container>
+      {/* <Navbar /> */}
+      <Home />
     </>
   )
 }

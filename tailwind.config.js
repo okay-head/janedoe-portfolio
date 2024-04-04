@@ -11,14 +11,12 @@ export default {
       colors: {
         teal: {
           base: 'hsl(184, 60%, 83%)',
-          lighter: 'hsl(184, 60%, 95%)',
+          base2: 'hsl(184, 60%, 90%)',
         },
         text: {
           primary: 'hsla(0, 0%, 0%, 0.898)',
           lighter: 'hsl(0, 0%, 49%)',
         },
-        primary: {},
-        secondary: {},
       },
       screens: {
         xs: '430px',
