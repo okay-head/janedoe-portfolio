@@ -6,7 +6,7 @@ export default {
     fontFamily: {
       jost: 'Jost, sans-serif;',
       urbanist: "'Urbanist', sans-serif;",
-      readex: "'Readex Pro', sans-serif;",
+      firaCode: '"Fira Code", monospace;',
     },
     extend: {
       colors: {

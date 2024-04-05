@@ -41,10 +41,14 @@ export default function Home() {
           </section>
 
           <section className='hero-text relative grid place-items-center lg:order-1'>
-            <span className='decorators absolute left-0 top-0 inline-block text-text-lighter'></span>
-            <span className='decorators absolute bottom-0 right-0 inline-block text-text-lighter'></span>
+            <div className='relative flex flex-col gap-6'>
+              <span className='decorators font-firaCode absolute left-[0%] top-[-20%] inline-block text-lg font-light text-text-lighter'>
+                {'<H1>'}
+              </span>
+              <span className='decorators font-firaCode absolute bottom-[-20%] right-[0%] inline-block text-lg font-light text-text-lighter'>
+                {'</H1>'}
+              </span>
 
-            <div className='flex flex-col gap-6'>
               <h1 className='font-urbanist text-2xl font-semibold uppercase lg:text-3xl'>
                 Hi, I'm
               </h1>
@@ -57,7 +61,7 @@ export default function Home() {
             </div>
           </section>
         </div>
-        <div className='cta-group relative -top-9 flex gap-8 text-lg sm:mx-auto lg:ms-24'>
+        <div className='cta-group relative -top-11 flex gap-8 text-lg sm:mx-auto lg:ms-24'>
           <div className='btn-wrapper group relative inline-block'>
             <span className='btn-ouline absolute left-3 top-3 z-0 h-full w-full -translate-x-3 -translate-y-3 border border-black bg-slate-600 transition-all group-hover:-translate-y-0 group-hover:translate-x-0'></span>
             <button
