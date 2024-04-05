@@ -2,15 +2,14 @@
 type T = {
   classVars?: string
 }
-export default function Container({ children, classVars = '' }: TChild & T) {
+export default function Container({
+  children,
+  classVars = 'bg-teal-base-150',
+}: TChild & T) {
   return (
     <div
-      className={`content-container m-8 h-[90%] overflow-hidden border border-red-600 ${classVars}`}
+      className={`container-custom relative mx-4 justify-evenly px-5 py-7 lg:px-20 lg:py-20 ${classVars}`}
     >
-      {/* <div className='relative mt-[--navbar-height-mob] xs:mt-[--navbar-height] md:ms-[--sidebar-width]'> */}
-      {/* <span className='absolute right-2 top-2 text-xs'>CONTAINER</span> */}
-      {/* <Outlet /> */}
-      {/* </div> */}
       {children}
     </div>
   )

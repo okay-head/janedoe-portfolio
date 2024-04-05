@@ -1,5 +1,6 @@
 import { DollarSign } from 'react-feather'
 import H1 from '../../components/H1'
+import Container from '../../components/Container'
 export default function Services() {
   const services = [
     {
@@ -71,30 +72,16 @@ export default function Services() {
     },
   ]
   return (
-    <>
-      <div
-        className={`container-custom relative mx-4 min-h-screen justify-evenly px-5 py-7 lg:px-20 lg:py-20 ${`bg-teal-base-150`}`}
-      >
-        <H1
-          text={'<span>'}
-          desc='Ways I can help'
-          position={[
-            'bottom-[-25%] lg:bottom-[-10%] right-[0%] !text-xs',
-            'left-[0%] top-[-47%] !text-xs',
-          ]}
-        >
-          Services
-        </H1>
-        {/* <p className='desc text-lg'>
-          Some of the expert services that I offer:
-        </p> */}
-        <div className='services-container flex grid-cols-2 flex-col gap-2 lg:mt-16 lg:grid lg:gap-16'>
-          {services.map((x) => {
-            if (x.enabled) return <ServiceCard x={x} />
-          })}
-        </div>
+    <Container>
+      <H1 text={'<span>'} desc='Ways I can help'>
+        Services
+      </H1>
+      <div className='services-container flex grid-cols-2 flex-col gap-2 lg:mt-16 lg:grid lg:gap-16'>
+        {services.map((x) => {
+          if (x.enabled) return <ServiceCard key={x._id} x={x} />
+        })}
       </div>
-    </>
+    </Container>
   )
 }
 
