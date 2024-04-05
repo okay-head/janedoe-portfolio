@@ -7,7 +7,7 @@ export default function Main() {
   return (
     <main>
       <div
-        className={`container-custom relative m-4 mb-0 flex min-h-screen flex-col justify-evenly p-5 lg:min-h-[calc(100vh-5rem)] lg:p-9 ${`bg-teal-base-150`}`}
+        className={`container-custom relative m-4 mb-0 flex min-h-screen flex-col justify-evenly p-5 lg:min-h-[calc(100vh-5rem)] lg:p-9 ${`bg-teal-base-100`}`}
       >
         <button className='nav-toggle fixed right-9 top-10 z-50 lg:right-12 lg:top-11'>
           <img src={hamburger} alt='Open Menu' />
