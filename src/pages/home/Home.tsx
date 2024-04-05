@@ -1,3 +1,4 @@
+import CTA from './CTA'
 import Main from './Main'
 import Services from './Services'
 import Testimonials from './Testimonials'
@@ -8,6 +9,7 @@ export default function Home() {
       <Main />
       <Services />
       <Testimonials />
+      <CTA />
     </>
   )
 }

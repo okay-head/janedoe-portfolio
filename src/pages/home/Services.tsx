@@ -72,7 +72,7 @@ export default function Services() {
     },
   ]
   return (
-    <Container>
+    <Container classVars='lg:pt-24'>
       <H1 text={'<span>'} desc='Ways I can help'>
         Services
       </H1>

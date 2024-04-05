@@ -12,7 +12,7 @@ const x = [
 export default function H1({ children, desc, text, position = x }: TChild & T) {
   return (
     <div className='h1-container my-12 flex gap-4 lg:mb-20 lg:mt-10 '>
-      <h1 className='relative inline-block text-2xl  lg:text-4xl'>
+      <h1 className='relative inline-block text-4xl lg:text-5xl'>
         {children}
         <span className='h1-decorator absolute -bottom-1.5 left-0 h-1.5 w-full bg-teal-base-700'></span>
       </h1>

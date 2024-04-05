@@ -68,7 +68,7 @@ export default function Main() {
             <span className='btn-ouline absolute left-3 top-3 z-0 h-full w-full -translate-x-3 -translate-y-3 border border-black bg-slate-600 transition-all group-hover:-translate-y-0 group-hover:translate-x-0'></span>
             <button
               id='resume'
-              className='bg-teal-base-150 relative z-10 border border-black px-6 py-1.5'
+              className='bg-teal-base-100 relative z-10 border border-black px-6 py-1.5'
             >
               Resume
               <img
@@ -83,7 +83,7 @@ export default function Main() {
             <span className='btn-ouline absolute left-3 top-3 z-0 h-full w-full -translate-x-3 -translate-y-3 border border-black bg-slate-600 transition-all group-hover:-translate-y-0 group-hover:translate-x-0'></span>
             <button
               id='hireme'
-              className='bg-teal-base-150 relative z-10 border border-black px-8 py-1.5'
+              className='bg-teal-base-100 relative z-10 border border-black px-8 py-1.5'
             >
               Hire me
             </button>
