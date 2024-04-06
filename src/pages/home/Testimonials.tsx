@@ -86,7 +86,7 @@ function Card({ x }: { x: TTestimonial }) {
       id={x._id}
       className='testimonial-card relative border-2 border-black bg-white p-10 lg:min-w-[30rem]'
     >
-      <div className='card-body relative my-6 text-justify'>{x.review}</div>
+      <div className='card-body relative my-6 lg:text-justify'>{x.review}</div>
       <div className='author mt-4 flex items-center gap-4'>
         <img
           src={`${x.image.url}`}

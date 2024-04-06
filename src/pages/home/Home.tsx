@@ -1,3 +1,4 @@
+import Footer from '../../components/footer/Footer'
 import CTA from './CTA'
 import Main from './Main'
 import Services from './Services'
@@ -10,6 +11,7 @@ export default function Home() {
       <Services />
       <Testimonials />
       <CTA />
+      <Footer />
     </>
   )
 }

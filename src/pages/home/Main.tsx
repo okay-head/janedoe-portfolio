@@ -65,7 +65,7 @@ export default function Main() {
         </div>
         <div className='cta-group relative -top-11 flex gap-8 text-lg sm:mx-auto lg:ms-12'>
           <div className='btn-wrapper group relative inline-block'>
-            <span className='btn-ouline absolute left-3 top-3 z-0 h-full w-full -translate-x-3 -translate-y-3 border border-black bg-slate-600 transition-all group-hover:-translate-y-0 group-hover:translate-x-0'></span>
+            <span className='btn-ouline absolute left-1 top-1 z-0 h-full w-full translate-x-1 translate-y-1 border border-black bg-slate-600 transition-all group-hover:translate-x-0 group-hover:translate-y-0'></span>
             <button
               id='resume'
               className='bg-teal-base-100 relative z-10 border border-black px-6 py-1.5'
@@ -79,7 +79,17 @@ export default function Main() {
             </button>
           </div>
 
-          <div className='btn-wrapper group relative inline-block'>
+          {/* <div className='btn-wrapper group relative mx-auto mt-8 inline-block max-w-max'>
+          <button
+            id='hireme'
+            className='bg-teal-base-100 relative z-10 border border-black px-6 py-1.5'
+          >
+            HIRE ME
+          </button>
+          <span className='btn-ouline absolute left-1 top-1 z-0 h-full w-full translate-x-1 translate-y-1 border border-black bg-slate-600 transition-all group-hover:translate-x-0 group-hover:translate-y-0'></span>
+        </div> */}
+
+          {/* <div className='btn-wrapper group relative inline-block'>
             <span className='btn-ouline absolute left-3 top-3 z-0 h-full w-full -translate-x-3 -translate-y-3 border border-black bg-slate-600 transition-all group-hover:-translate-y-0 group-hover:translate-x-0'></span>
             <button
               id='hireme'
@@ -87,7 +97,7 @@ export default function Main() {
             >
               Hire me
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>

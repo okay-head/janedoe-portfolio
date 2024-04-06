@@ -7,7 +7,14 @@
 /* 🔴 Need custom sizing for text! */
 :root {
   --teal-base-700: hsl(184, 60%, 83%);
+  --gray: #2e2e2e00;
 }
+.hero-img-placeholder {
+  background-image: url('https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706283290608-n4hq7k');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+/* https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706283290608-n4hq7k */
 
 .testimonial-card::before {
   position: absolute;
@@ -40,19 +47,23 @@
   background-repeat: no-repeat;
 }
 
-#facebook:hover {
+#facebook:hover,
+img[title='facebook']:hover {
   filter: invert(36%) sepia(17%) saturate(1719%) hue-rotate(140deg)
     brightness(90%) contrast(150%);
 }
-#instagram:hover {
+#instagram:hover,
+img[title='instagram']:hover {
   filter: invert(32%) sepia(53%) saturate(4685%) hue-rotate(295deg)
     brightness(85%) contrast(85%);
 }
-#linkedin:hover {
+#linkedin:hover,
+img[title='linkedin']:hover {
   filter: invert(30%) sepia(77%) saturate(1665%) hue-rotate(178deg)
     brightness(78%) contrast(99%);
 }
-#twitter:hover {
+#twitter:hover,
+img[title='twitter']:hover {
   filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(333deg) brightness(0%)
     contrast(103%);
 }

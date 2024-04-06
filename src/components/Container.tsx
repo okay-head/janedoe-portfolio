@@ -10,7 +10,7 @@ export default function Container({
 }: TChild & T) {
   return (
     <div
-      className={`container-custom relative mx-4 justify-evenly px-5 py-7 lg:px-20 lg:pb-36 ${classVars} ${background}`}
+      className={`container-custom relative mx-4 justify-evenly px-5 py-7 lg:px-20 lg:py-24 ${classVars} ${background}`}
     >
       {children}
     </div>
