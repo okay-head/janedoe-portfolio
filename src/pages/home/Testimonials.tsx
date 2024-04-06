@@ -84,7 +84,7 @@ function Card({ x }: { x: TTestimonial }) {
   return (
     <article
       id={x._id}
-      className='testimonial-card relative border-2 border-black bg-white p-10 lg:min-w-[30rem]'
+      className='testimonial-card relative border-2 border-black bg-white p-8 lg:min-w-[30rem] lg:p-10'
     >
       <div className='card-body relative my-6 lg:text-justify'>{x.review}</div>
       <div className='author mt-4 flex items-center gap-4'>

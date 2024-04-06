@@ -1,6 +1,7 @@
 import { DollarSign } from 'react-feather'
 import H1 from '../../components/H1'
 import Container from '../../components/Container'
+import SlantCurrentSvg from '../../assets/slant-bars-current'
 export default function Services() {
   const services = [
     {
@@ -76,7 +77,7 @@ export default function Services() {
       <H1 text={'<span>'} desc='Ways I can help'>
         Services
       </H1>
-      <div className='services-container flex grid-cols-2 flex-col gap-2 lg:mt-16 lg:grid lg:gap-16'>
+      <div className='services-container flex grid-cols-3 grid-rows-2 flex-col justify-between gap-6 lg:mt-16 lg:grid lg:gap-24'>
         {services.map((x) => {
           if (x.enabled) return <ServiceCard key={x._id} x={x} />
         })}
@@ -87,26 +88,26 @@ export default function Services() {
 
 function ServiceCard({ x }: { x: TService }) {
   return (
-    <article id={x._id} className='flex items-center gap-6'>
-      <div>
-        <img
-          src={x.image.url}
-          alt={x.name}
-          className='my-4 aspect-square w-36 max-w-[15rem] lg:my-0 lg:w-[25rem]'
-        />
-      </div>
-      <div className='flex h-full flex-col justify-between lg:justify-evenly'>
-        <div>
-          <h3 className='font-urbanist text-lg font-semibold !leading-9 lg:text-xl'>
-            {x.name}
-          </h3>
-          <p className='text-text-subtitle text-sm lg:text-base'>{x.desc}</p>
+    <article id={x._id} className='mx-auto w-max'>
+      <div className='group relative aspect-square w-64 shadow-xl lg:w-[22.55rem]'>
+        {/* Content */}
+        <div className='card-content  absolute top-0 z-10 flex h-full w-full origin-bottom translate-x-5 flex-col justify-between border-2 border-black bg-white p-8 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 lg:justify-evenly lg:p-16'>
+          <SlantCurrentSvg classVars='text-teal-base-700 absolute bottom-[5px] right-[7.5px] aspect-square h-16 lg:h-20' />
+          <div>
+            <h3 className='font-urbanist text-lg font-semibold !leading-9 lg:text-xl'>
+              {x.name}
+            </h3>
+            <p className='text-text-subtitle text-sm lg:text-base'>{x.desc}</p>
+          </div>
+
+          <span className='charge flex items-center text-sm font-medium'>
+            <DollarSign size={14} />
+            Charges: {x.charge}
+          </span>
         </div>
 
-        <span className='charge flex items-center text-sm font-medium'>
-          <DollarSign size={14} />
-          Charges: {x.charge}
-        </span>
+        {/* Image */}
+        <img src={x.image.url} alt={x.name} className='h-full w-full' />
       </div>
     </article>
   )

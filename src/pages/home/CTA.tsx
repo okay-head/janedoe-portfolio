@@ -5,16 +5,16 @@ import Decorators from '../../components/Decorators'
 
 export default function CTA() {
   return (
-    <Container classVars='min-h-[90vh] grid place-items-center'>
+    <Container classVars='min-h-[85vh] lg:min-h-[90vh] grid place-items-center'>
       <img
         src={pattern}
         alt='decorator'
-        className='absolute left-[10%] top-[10%] lg:left-10 lg:top-10'
+        className='absolute left-[10%] top-[9%] lg:left-10 lg:top-10'
       />
       <img
         src={bow}
         alt='decorator'
-        className='absolute bottom-[10%] right-[10%] lg:bottom-10 lg:right-10 '
+        className='absolute bottom-[9%] right-[10%] lg:bottom-10 lg:right-10 '
       />
       <div className='cta mx-auto flex max-w-lg flex-col gap-8 text-center'>
         <div className='relative'>

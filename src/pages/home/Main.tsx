@@ -63,7 +63,7 @@ export default function Main() {
             </div>
           </section>
         </div>
-        <div className='cta-group relative -top-11 flex gap-8 text-lg sm:mx-auto lg:ms-12'>
+        <div className='cta-group relative flex gap-8 text-lg sm:mx-auto lg:-top-11 lg:ms-12'>
           <div className='btn-wrapper group relative inline-block'>
             <span className='btn-ouline absolute left-1 top-1 z-0 h-full w-full translate-x-1 translate-y-1 border border-black bg-slate-600 transition-all group-hover:translate-x-0 group-hover:translate-y-0'></span>
             <button
