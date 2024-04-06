@@ -29,24 +29,18 @@ export default function Navbar() {
   ]
   return (
     // wont be using container for nav
-    <Container background='bg-teal-base-150 inset-0 !fixed z-50'>
-      <nav className='m-4 flex select-none flex-col gap-10'>
-        <section className='nav-header font-lato flex justify-between'>
-          <button className='text-lg font-light uppercase tracking-[0.2em] text-text-lighter transition-all hover:tracking-[0.27em]'>
-            Close
-          </button>
-          <button className='text-lg font-light uppercase tracking-[0.2em] text-text-lighter transition-all hover:tracking-[0.27em]'>
-            Preferences
-          </button>
-        </section>
-
+    <Container background='m-4 bg-teal-base-700 inset-0 !fixed z-50'>
+      <button className='absolute left-5 top-5 z-[60] lg:text-lg font-light uppercase  tracking-[0.2em] text-text-lighter transition-all hover:tracking-[0.27em] lg:left-24 lg:top-11'>
+        Preferences
+      </button>
+      <nav className='m-4 mt-32 lg:mt-16 flex select-none flex-col gap-28 items-center lg:items-stretch'>
         <section className='nav-body my-auto flex justify-between'>
           <div className='nav-links flex flex-col gap-7'>
             {navLinks.map((x, i) => (
               <NavItem key={i} txt={x} />
             ))}
           </div>
-          <div className='graphics relative me-[10vw] grid grid-cols-2 grid-rows-2 gap-6'>
+          <div className='graphics hidden relative me-[10vw] lg:grid grid-cols-2 grid-rows-2 gap-6'>
             <span className='font-lato absolute top-[4%] text-2xl font-light text-text-lighter'>
               {'<nav>'}
             </span>
@@ -68,13 +62,13 @@ export default function Navbar() {
           </div>
         </section>
 
-        <section className='nav-footer flex items-center gap-5'>
+        <section className='nav-footer flex items-center gap-6'>
           {socialIcons.map((x, i) => {
             const [[name, src]] = Object.entries(x)
             return (
               <a href='#' key={i}>
                 <img
-                  className='aspect-square w-6 transition-all duration-300'
+                  className='aspect-square w-6 transition-all'
                   id={name}
                   src={src}
                   alt={name}
@@ -90,7 +84,7 @@ export default function Navbar() {
 
 function NavItem({ txt }: { txt: string }) {
   return (
-    <span className='inline-block font-jost text-6xl font-extralight'>
+    <span className='inline-block cursor-pointer text-3xl font-light transition-all hover:text-white lg:text-6xl text-center lg:text-left'>
       {txt}
     </span>
   )

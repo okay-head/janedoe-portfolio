@@ -47,7 +47,9 @@ export default function Footer() {
     <Container classVars='lg:!py-14 !py-10 bg-white text-text-subtitle text-sm'>
       <section className='flex flex-col items-center justify-between gap-8 lg:flex-row'>
         {/* scrolltop-btn */}
-        <button className='scroll-btn font-firaCode flex items-center gap-1 text-sm hover:underline lg:order-2'>
+        <button onClick={()=>{
+          document.documentElement.scrollTop = 0
+        }} className='scroll-btn font-firaCode flex items-center gap-1 text-sm hover:underline lg:order-2'>
           <span>
             <ArrowUp size={16} strokeWidth={'1.4px'} />
           </span>
