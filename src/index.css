@@ -9,12 +9,16 @@
   --teal-base-700: hsl(184, 60%, 83%);
   --gray: #2e2e2e00;
 }
+
+.modal-fix {
+  height: 100vh;
+  overflow-y: hidden;
+}
 .hero-img-placeholder {
   background-image: url('https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706283290608-n4hq7k');
   background-position: 50% 50%;
   background-size: cover;
 }
-/* https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706283290608-n4hq7k */
 
 .testimonial-card::before {
   position: absolute;
