@@ -74,7 +74,7 @@ export default function Services() {
   ]
   return (
     <Container classVars='lg:pt-24'>
-      <H1 text={'<span>'} desc='Ways I can help'>
+      <H1 desc='Ways I can help'>
         Services
       </H1>
       <div className='services-container flex grid-cols-3 grid-rows-2 flex-col justify-between gap-6 lg:mt-16 lg:grid lg:gap-24'>

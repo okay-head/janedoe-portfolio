@@ -4,6 +4,8 @@ import hamburger from '/src/assets/hamburger-bars.svg'
 import useGlobalStore from './state/GlobalState'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import NotFound from './pages/NotFound'
+import Skills from './pages/skills-projects/Skills'
+import Footer from './components/footer/Footer'
 
 export default function App() {
   const toggleNav = useGlobalStore((state) => state.togglenavOpen)
@@ -24,6 +26,10 @@ export default function App() {
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
+      <Skills />
+      <Footer />
+      
     </BrowserRouter>
+    
   )
 }

@@ -67,7 +67,7 @@ export default function Testimonials() {
 
   return (
     <Container>
-      <H1 text={'<span>'} desc='Garnering trust along the way'>
+      <H1  desc='Garnering trust along the way'>
         Testimonials
       </H1>
 
