@@ -6,6 +6,7 @@ import polkaDots from './../../assets/polka-dots.png'
 import Container from '../Container'
 import { useEffect } from 'react'
 import useGlobalStore from '../../state/GlobalState'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Navbar() {
   const navIsOpen = useGlobalStore((state) => state.navOpen)
@@ -21,11 +22,10 @@ export default function Navbar() {
 
   const socialIcons = [{ facebook }, { instagram }, { linkedin }, { twitter }]
   const navLinks = [
-    'Home',
-    'Skills and projects',
-    'Work and education',
-    // 'About',
-    'Contact',
+    ['Home', '/'],
+    ['Skills and projects', '/skills'],
+    ['Work and education', '/timeline'],
+    ['Contact', '/contact'],
   ]
   return (
     // wont be using container for nav
@@ -82,10 +82,21 @@ export default function Navbar() {
   )
 }
 
-function NavItem({ txt }: { txt: string }) {
+function NavItem({ txt }: { txt: string[] }) {
+  const toggleNav = useGlobalStore((state) => state.togglenavOpen)
+  const location = useLocation()
+
+  const handleClick = () => {
+    if (location.pathname != txt[1]) document.documentElement.scrollTop = 0
+    toggleNav()
+  }
   return (
-    <span className='inline-block cursor-pointer text-center text-3xl font-light transition-all hover:text-white lg:text-left lg:text-6xl'>
-      {txt}
-    </span>
+    <Link
+      to={txt[1]}
+      onClick={handleClick}
+      className='inline-block cursor-pointer text-center text-3xl font-light transition-all hover:text-white lg:text-left lg:text-6xl'
+    >
+      {txt[0]}
+    </Link>
   )
 }

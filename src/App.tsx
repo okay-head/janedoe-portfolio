@@ -22,16 +22,15 @@ export default function App() {
       </button>
       {navIsOpen && <Navbar />}
 
-      {/* <Routes>
+      <Routes>
         <Route path='/'>
           <Route index element={<Home />} />
+          <Route path='/skills' element={<SKillsProjects />} />
+          <Route path='/timeline' element={<TimeLine />} />
+          <Route path='/contact' element={<Contact />} />
           <Route path='*' element={<NotFound />} />
         </Route>
-      </Routes> */}
-      <SKillsProjects />
-      <TimeLine />
-      <Home />
-      <Contact />
+      </Routes>
       <Footer />
     </BrowserRouter>
   )
