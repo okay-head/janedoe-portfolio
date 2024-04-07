@@ -8,6 +8,7 @@ export default {
       urbanist: "'Urbanist', sans-serif;",
       firaCode: '"Fira Code", monospace;',
     },
+    // later remove the extended colors and only keep current colors
     extend: {
       colors: {
         teal: {
@@ -22,6 +23,11 @@ export default {
         greenAccent: {
           700: 'hsl(139, 90%, 90%)',
           150: 'hsl(139, 90%, 95%)',
+        },
+        violetAccent: {
+          900: 'hsl(252, 100%, 78%)',
+          700: 'hsl(252, 100%, 88%)',
+          150: 'hsl(252, 100%, 94%)',
         },
         text: {
           primary: 'hsla(0, 0%, 0%, 0.898)',

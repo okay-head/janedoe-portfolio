@@ -24,23 +24,23 @@ export default function Navbar() {
     'Home',
     'Skills and projects',
     'Work and education',
-    'About',
+    // 'About',
     'Contact',
   ]
   return (
     // wont be using container for nav
     <Container background='m-4 bg-teal-base-700 inset-0 !fixed z-50'>
-      <button className='absolute left-5 top-5 z-[60] lg:text-lg font-light uppercase  tracking-[0.2em] text-text-lighter transition-all hover:tracking-[0.27em] lg:left-24 lg:top-11'>
+      <button className='absolute left-5 top-5 z-[60] font-light uppercase tracking-[0.2em]  text-text-lighter transition-all hover:tracking-[0.27em] lg:left-24 lg:top-11 lg:text-lg'>
         Preferences
       </button>
-      <nav className='m-4 mt-32 lg:mt-16 flex select-none flex-col gap-28 items-center lg:items-stretch'>
+      <nav className='m-4 mt-32 flex select-none flex-col items-center gap-28 lg:mt-16 lg:items-stretch'>
         <section className='nav-body my-auto flex justify-between'>
-          <div className='nav-links flex flex-col gap-7'>
+          <div className='nav-links flex flex-col gap-8 lg:gap-10'>
             {navLinks.map((x, i) => (
               <NavItem key={i} txt={x} />
             ))}
           </div>
-          <div className='graphics hidden relative me-[10vw] lg:grid grid-cols-2 grid-rows-2 gap-6'>
+          <div className='graphics relative me-[10vw] hidden grid-cols-2 grid-rows-2 gap-6 lg:grid'>
             <span className='font-lato absolute top-[4%] text-2xl font-light text-text-lighter'>
               {'<nav>'}
             </span>
@@ -84,7 +84,7 @@ export default function Navbar() {
 
 function NavItem({ txt }: { txt: string }) {
   return (
-    <span className='inline-block cursor-pointer text-3xl font-light transition-all hover:text-white lg:text-6xl text-center lg:text-left'>
+    <span className='inline-block cursor-pointer text-center text-3xl font-light transition-all hover:text-white lg:text-left lg:text-6xl'>
       {txt}
     </span>
   )

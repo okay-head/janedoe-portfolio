@@ -248,7 +248,7 @@ export default function Skills() {
 
   return (
     // start fresh with custom py-s, utilize min-h instead
-    <Container background='bg-greenAccent-150 min-h-screen lg:py-14'>
+    <Container background='bg-greenAccent-150 min-h-screen lg:!py-14'>
       <H1 desc='My tools of trade' accentColor='bg-greenAccent-700'>
         Skills
       </H1>

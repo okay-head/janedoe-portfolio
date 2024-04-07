@@ -8,6 +8,8 @@
 :root {
   --teal-base-700: hsl(184, 60%, 83%);
   --greenAccent-700: hsl(145, 32%, 85%);
+  --violetAccent-700: hsl(252, 100%, 88%);
+
   --gray: #2e2e2e00;
 }
 html {

@@ -1,7 +1,11 @@
+import Projects from './Projects'
+import Skills from './Skills'
+
 export default function SKillsProjects() {
   return (
     <>
-      <h1>Component</h1>
+      <Skills />
+      <Projects />
     </>
   )
 }

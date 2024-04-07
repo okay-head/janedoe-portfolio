@@ -258,7 +258,7 @@ export default function Projects() {
         Projects
       </H1>
       <Decorators />
-      <section className='projects-container mb-16 flex flex-col gap-10 sm:grid sm:grid-cols-2 lg:grid-cols-4'>
+      <section className='projects-container mb-24 flex flex-col gap-10 sm:grid sm:grid-cols-2 lg:mb-16 lg:grid-cols-4'>
         {sortedProjects.map((x) => {
           if (x.enabled) return <Card key={x._id} x={x} />
         })}
@@ -385,7 +385,7 @@ function Modal({ x }: { x: TProject }) {
         <div className='card-header flex items-center justify-between'>
           <h2 className='relative font-urbanist text-2xl lg:text-4xl'>
             <span>{x.title}</span>
-            <span className='font-firaCode absolute -top-6 left-0 text-xs text-text-lighter'>
+            <span className='font-firaCode absolute -top-6 left-0 hidden text-xs text-text-lighter lg:inline-block'>
               [ESC]
             </span>
           </h2>
