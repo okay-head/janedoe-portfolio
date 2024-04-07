@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound'
 import Footer from './components/footer/Footer'
 import SKillsProjects from './pages/skills-projects/SkillsProjects'
 import TimeLine from './pages/timeline/Timeline'
+import Contact from './pages/contact/Contact'
 
 export default function App() {
   const toggleNav = useGlobalStore((state) => state.togglenavOpen)
@@ -29,6 +30,8 @@ export default function App() {
       </Routes> */}
       <SKillsProjects />
       <TimeLine />
+      <Home />
+      <Contact />
       <Footer />
     </BrowserRouter>
   )
