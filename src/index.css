@@ -7,10 +7,25 @@
 /* 🔴 Need custom sizing for text! */
 :root {
   --teal-base-700: hsl(184, 60%, 83%);
+  --greenAccent-700: hsl(145, 32%, 85%);
   --gray: #2e2e2e00;
 }
-html{
+html {
   scroll-behavior: smooth;
+}
+.modal-fix-blur {
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.modal-fix-blur::before {
+  position: fixed;
+  content: '';
+  filter: blur(0.5);
+  backdrop-filter: blur(10px);
+  inset: 0;
+  z-index: 100;
+  height: 100vh;
 }
 .modal-fix {
   height: 100vh;
@@ -24,6 +39,9 @@ html{
   inset: 0;
   z-index: 49;
   height: 100vh;
+}
+.project-modal {
+  box-shadow: inset 0px 0px 0px 6px var(--greenAccent-700);
 }
 .hero-img-placeholder {
   background-image: url('https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706283290608-n4hq7k');

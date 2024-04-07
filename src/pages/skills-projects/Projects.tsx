@@ -2,6 +2,9 @@ import Container from '../../components/Container'
 import H1 from '../../components/H1'
 import pattern from '/src/assets/squiggly-lines.svg'
 import bow from '/src/assets/freehand-bow.svg'
+import { Tool, GitHub, ExternalLink, XCircle } from 'react-feather'
+import SlantCurrentSvg from '../../assets/slant-bars-current'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 type TProject = {
   liveurl: string
@@ -247,21 +250,6 @@ export default function Projects() {
     },
   ]
 
-  const one = {
-    liveurl: '#',
-    githuburl: '#',
-    title: 'Project 14',
-    sequence: 14,
-    image: {
-      public_id: '1706285511679-xe7r9t',
-      url: 'https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285511679-xe7r9t',
-    },
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-    techStack: ['Reactjs ', ' Nextjs ', ' Mern ', ' CSS'],
-    _id: '65b3d9c8d017f6b49c778ca7',
-    enabled: true,
-  }
   const sortedProjects = projects.sort((x, y) => x.sequence - y.sequence)
 
   return (
@@ -279,28 +267,56 @@ export default function Projects() {
   )
 }
 
-function Card({ x }: { x: TProject }) {
-  return (
-    <article
-      id={x._id}
-      className='project-card group relative aspect-[1.6] border-2 border-black shadow-sm'
-    >
-      <div
-        className='img-container h-full w-full transition-all duration-300 group-hover:blur-sm'
-        style={{
-          background: `url(${x.image.url}) no-repeat center center `,
-          backgroundSize: 'contain',
-        }}
-      ></div>
-      <div className='absolute inset-0 top-[unset] flex h-9 items-center border-t-2 border-black bg-white px-2'>
-        <h2 className='my-auto lg:text-lg'>{x.title}</h2>
-      </div>
+type Open = boolean
+type TContext = {
+  open: Open
+  setOpen: React.Dispatch<React.SetStateAction<Open>>
+}
+const ModalContext = createContext<TContext | null>(null)
+export { ModalContext }
 
-      {/* FRAMER- visible then opacity */}
-      <button className='invisible absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black px-2 py-1.5 text-white opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100'>
-        View more
-      </button>
-    </article>
+function Card({ x }: { x: TProject }) {
+  // instead pass down this state as context
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (open) document.body.classList.add('modal-fix-blur')
+    else document.body.classList.remove('modal-fix-blur')
+
+    return () => {
+      document.body.classList.remove('modal-fix-blur')
+    }
+  }, [open])
+
+  return (
+    <ModalContext.Provider value={{ open, setOpen }}>
+      <Modal x={x} />
+      <article
+        id={x._id}
+        className='project-card group relative aspect-[1.6] border-2 border-black shadow-sm'
+      >
+        <div
+          className='img-container h-full w-full transition-all duration-300 group-hover:blur-sm'
+          style={{
+            background: `url(${x.image.url}) no-repeat center center `,
+            backgroundSize: 'contain',
+          }}
+        ></div>
+        <div className='absolute inset-0 top-[unset] flex h-9 items-center border-t-2 border-black bg-white px-2'>
+          <h2 className='my-auto lg:text-lg'>{x.title}</h2>
+        </div>
+
+        {/* FRAMER- visible then opacity */}
+        <button
+          onClick={() => {
+            setOpen(true)
+          }}
+          className='invisible absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-black px-2 py-1.5 text-white opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100'
+        >
+          View more
+        </button>
+      </article>
+    </ModalContext.Provider>
   )
 }
 
@@ -318,5 +334,86 @@ function Decorators() {
         className='absolute bottom-[18px] right-[10px] lg:bottom-10 lg:right-10 '
       />
     </>
+  )
+}
+
+function Modal({ x }: { x: TProject }) {
+  const { open, setOpen } = useContext(ModalContext) as TContext
+  // e: React.KeyboardEvent<HTMLDivElement>
+  useEffect(() => {
+    const handleKeyDown = (e: any) => {
+      if (e.key == 'Escape') setOpen(false)
+    }
+    document.documentElement.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.documentElement.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [setOpen])
+
+  const techStack = x.techStack.join('|')
+  return (
+    <div
+      className={`modal-wrapper fixed inset-0 z-[150] grid max-h-screen max-w-[100vw] place-content-center overflow-auto bg-black/50 px-4 ${open ? '' : 'hidden'}`}
+    >
+      <article
+        id={x._id}
+        className='project-modal group relative flex max-w-[50rem] flex-col gap-10 bg-white px-10 py-8 lg:min-h-[40rem]'
+      >
+        <button
+          className='modal-close'
+          onClick={() => {
+            setOpen(false)
+          }}
+        >
+          <XCircle
+            strokeWidth={'1.4px'}
+            className='absolute -right-3 -top-3 w-[32px] lg:hidden'
+            fill='white'
+          />
+        </button>
+
+        <button
+          id='modal-close'
+          className='absolute -top-10 left-1/2 hidden -translate-x-1/2 px-2 py-1 text-sm opacity-0 transition-all duration-300 group-hover:translate-y-14 group-hover:opacity-100 lg:block'
+          onClick={() => {
+            setOpen(false)
+          }}
+        >
+          <XCircle strokeWidth={'1.4px'} size={32} fill='white' />
+        </button>
+        <SlantCurrentSvg classVars='text-greenAccent-700 absolute bottom-[9px] right-[12.5px] aspect-square h-16 lg:h-20' />
+        <div className='card-header flex items-center justify-between'>
+          <h2 className='relative font-urbanist text-2xl lg:text-4xl'>
+            <span>{x.title}</span>
+            <span className='font-firaCode absolute -top-6 left-0 text-xs text-text-lighter'>
+              [ESC]
+            </span>
+          </h2>
+          <div className='icons flex gap-2'>
+            <a href={x.liveurl} rel='noopener noreferrer'>
+              <ExternalLink strokeWidth={'1.4px'} className='w-[32px]' />
+            </a>
+            <a href={x.githuburl} rel='noopener noreferrer'>
+              {' '}
+              <GitHub strokeWidth={'1.4px'} className='w-[32px]' />
+            </a>
+          </div>
+        </div>
+        <div className='modal-card-body'>
+          <img
+            src={x.image.url}
+            alt=''
+            className='mx-auto aspect-[1.6] h-1/2 border-2 border-black lg:h-[20rem]'
+          />
+          <p className='desc mx-auto mt-8 text-justify lg:w-[calc(20*1.6rem)]'>
+            {x.description}
+          </p>
+        </div>
+        <div className='tech-stack flex items-center gap-2'>
+          <Tool strokeWidth={'1.4px'} className='w-[20px]' />
+          {techStack}
+        </div>
+      </article>
+    </div>
   )
 }
