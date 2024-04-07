@@ -374,7 +374,7 @@ function Modal({ x }: { x: TProject }) {
 
         <button
           id='modal-close'
-          className='absolute -top-10 left-1/2 hidden -translate-x-1/2 px-2 py-1 text-sm opacity-0 transition-all duration-300 group-hover:translate-y-14 group-hover:opacity-100 lg:block'
+          className='absolute -top-10 left-1/2 hidden -translate-x-1/2 px-2 py-1 text-sm opacity-0 transition-all duration-300 hover:scale-x-[1.08] hover:scale-y-[1.08] group-hover:translate-y-16 group-hover:opacity-100 lg:block'
           onClick={() => {
             setOpen(false)
           }}

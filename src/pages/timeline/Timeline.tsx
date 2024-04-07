@@ -1,3 +1,4 @@
+import EducationHistory from './EducationHistory'
 import WorkHistory from './WorkHistory'
 
 export default function TimeLine() {
@@ -5,6 +6,7 @@ export default function TimeLine() {
   return (
     <>
       <WorkHistory />
+      <EducationHistory />
     </>
   )
 }

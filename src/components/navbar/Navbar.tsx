@@ -29,7 +29,7 @@ export default function Navbar() {
   ]
   return (
     // wont be using container for nav
-    <Container background='m-4 bg-teal-base-700 inset-0 !fixed z-50'>
+    <Container background='m-4 bg-orangeAccent-150 inset-0 !fixed z-50'>
       <button className='absolute left-5 top-5 z-[60] font-light uppercase tracking-[0.2em]  text-text-lighter transition-all hover:tracking-[0.27em] lg:left-24 lg:top-11 lg:text-lg'>
         Preferences
       </button>

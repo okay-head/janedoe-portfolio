@@ -1,10 +1,9 @@
 import Container from '../../components/Container'
 import DecoratorGroup from '../../components/DecoratorGroup'
-import H1 from '../../components/H1'
-import { Briefcase, MapPin } from 'react-feather'
+import { Book, MapPin } from 'react-feather'
 import { format } from 'fecha'
 
-export default function WorkHistory() {
+export default function EducationHistory() {
   const timeline = [
     {
       company_name: 'StartupX',
@@ -143,22 +142,19 @@ export default function WorkHistory() {
 
   return (
     <Container background='bg-violetAccent-150 min-h-screen lg:!py-14'>
-      <H1 desc='Work and Education' accentColor='bg-violetAccent-700'>
-        Timeline
-      </H1>
       <DecoratorGroup />
 
-      <h2 className='relative flex items-center gap-2 text-xl font-medium lg:text-3xl'>
+      <h2 className='relative flex items-center gap-2 text-right text-xl font-medium lg:text-3xl'>
         {/* <span className='rounded-full bg-white p-1.5'> */}
-        <Briefcase strokeWidth={'1.8px'} size={25} />
+        <Book strokeWidth={'1.8px'} size={25} className='ms-auto' />
         {/* </span> */}
-        <span>Work history</span>
+        <span>Education history</span>
         <span
           className={`h1-decorator absolute -bottom-4 left-0 z-0 h-[2px] w-full bg-black`}
         ></span>
       </h2>
-      <section className='work-cards-container mb-20 mt-12 flex flex-col gap-16 lg:my-16 lg:gap-5'>
-        {workTimeline.map((x) => {
+      <section className='education-cards-container mb-20 mt-12 flex flex-col gap-16 lg:my-16 lg:gap-5'>
+        {educationTimeline.map((x) => {
           if (x.enabled) return <Card key={x._id} x={x} />
         })}
       </section>
@@ -166,7 +162,7 @@ export default function WorkHistory() {
   )
 }
 
-//  --- WORK card ---
+//  --- education card ---
 function Card({ x }: { x: TTimeline }) {
   const formatDate = (date: Date) => format(date, 'MMM YY')
 
@@ -174,11 +170,11 @@ function Card({ x }: { x: TTimeline }) {
   const endDate = new Date(x.endDate)
 
   return (
-    <article id={x._id} className='timeline-card relative lg:ms-10 lg:w-max'>
-      <span className='absolute -left-8 top-4 hidden aspect-square h-2 rounded-full bg-black lg:block'></span>
+    <article id={x._id} className='timeline-card relative w-full lg:me-12'>
+      <span className='absolute -right-8 top-4 hidden aspect-square h-2 rounded-full bg-black lg:block'></span>
 
-      <div className='work-card-container flex flex-col items-start gap-6 lg:flex-row'>
-        <div className='btn-wrapper group relative mx-auto inline-block max-w-max'>
+      <div className='education-card-container flex flex-col items-start gap-6 lg:flex-row'>
+        <div className='btn-wrapper group relative mx-auto inline-block max-w-max lg:order-2 lg:mx-[unset]'>
           <span
             id='duration'
             className='relative z-10 inline-block border border-black bg-white px-6 py-1.5'
@@ -188,7 +184,7 @@ function Card({ x }: { x: TTimeline }) {
           <span className='btn-ouline bg-violetAccent-900 absolute left-1 top-1 z-0 h-full w-full translate-x-[2px] translate-y-[2px] border border-black transition-all group-hover:translate-x-0 group-hover:translate-y-0'></span>
         </div>
         {/* card body */}
-        <section className='work-body flex flex-col gap-4 border border-black bg-white px-9 py-5 pt-4 lg:px-12'>
+        <section className='education-body mx-auto flex flex-col gap-4 border border-black bg-white px-9 py-5 pt-4 lg:order-1 lg:mx-[unset] lg:ms-auto lg:px-12'>
           <div className='card-header mx-auto justify-between sm:flex lg:mx-[unset]'>
             <div>
               <h3 className='company-name text-lg font-semibold'>
