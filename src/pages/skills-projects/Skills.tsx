@@ -3,31 +3,6 @@ import H1 from '../../components/H1'
 import pattern from '/src/assets/squiggly-lines.svg'
 import bow from '/src/assets/freehand-bow.svg'
 
-type TSkill =
-  | {
-      enabled: boolean
-      name: string
-      sequence: number
-      percentage: number
-      image: {
-        public_id: string
-        url: string
-        _id: string
-      }
-      _id: string
-    }
-  | {
-      enabled: boolean
-      name: string
-      sequence: number
-      percentage: number
-      image: {
-        public_id: string
-        url: string
-        _id: string
-      }
-      _id: string
-    }
 export default function Skills() {
   const skills = [
     {
@@ -270,7 +245,6 @@ export default function Skills() {
     },
   ]
   const sortedSkills = skills.sort((x, y) => x.sequence - y.sequence)
-  console.log(sortedSkills)
 
   return (
     // start fresh with custom py-s, utilize min-h instead
@@ -279,7 +253,7 @@ export default function Skills() {
         Skills
       </H1>
       <Decorators />
-      <section className='skills-container mb-16 grid grid-cols-4 gap-10'>
+      <section className='skills-container mb-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4'>
         {sortedSkills.map((x) => {
           if (x.enabled) return <Card key={x._id} x={x} />
         })}
@@ -298,7 +272,10 @@ function Card({ x }: { x: any }) {
           <span className='text-text-subtitle'>Lorem ipsum dolor sit amet</span>
         </div>
       </div>
-      <div className='progress-bar-container border border-black bg-white'>
+      <div className='progress-bar-container relative border border-black bg-white'>
+        <span className='font-firaCode absolute right-0 top-[-24px] text-sm'>
+          {x.percentage}%
+        </span>
         <div
           style={{ transform: `scaleX(${x.percentage / 100})` }}
           className='progress-bar bg-text-subtitle h-1.5 w-full origin-left transition-all'
@@ -314,12 +291,12 @@ function Decorators() {
       <img
         src={pattern}
         alt='decorator'
-        className='absolute bottom-[9%] left-[10%] lg:bottom-10 lg:left-10'
+        className='absolute bottom-[18px] left-[10px] lg:bottom-10 lg:left-10'
       />
       <img
         src={bow}
         alt='decorator'
-        className='absolute bottom-[9%] right-[10%] lg:bottom-10 lg:right-10 '
+        className='absolute bottom-[18px] right-[10px] lg:bottom-10 lg:right-10 '
       />
     </>
   )

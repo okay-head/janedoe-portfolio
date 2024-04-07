@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import NotFound from './pages/NotFound'
 import Skills from './pages/skills-projects/Skills'
 import Footer from './components/footer/Footer'
+import Projects from './pages/skills-projects/Projects'
 
 export default function App() {
   const toggleNav = useGlobalStore((state) => state.togglenavOpen)
@@ -14,7 +15,7 @@ export default function App() {
     <BrowserRouter>
       <button
         onClick={toggleNav}
-        className='nav-toggle fixed w-12 h-12 right-6 top-5 z-[60] lg:right-20 lg:top-9'
+        className='nav-toggle fixed right-6 top-5 z-[60] h-12 w-12 lg:right-20 lg:top-9'
       >
         <img src={hamburger} alt='Open Menu' />
       </button>
@@ -27,9 +28,8 @@ export default function App() {
         </Route>
       </Routes>
       <Skills />
+      <Projects />
       <Footer />
-      
     </BrowserRouter>
-    
   )
 }

@@ -10,12 +10,20 @@ const x = [
   'left-[0%] top-[-47%] !text-xs',
 ]
 
-export default function H1({ children, desc, text=['<span>','</span>'], position = x, accentColor='bg-teal-base-700' }: TChild & T) {
+export default function H1({
+  children,
+  desc,
+  text = ['<span>', '</span>'],
+  position = x,
+  accentColor = 'bg-teal-base-700',
+}: TChild & T) {
   return (
     <div className='h1-container my-16 flex gap-4 lg:mb-20 lg:mt-10 '>
       <h1 className='relative inline-block text-4xl lg:text-5xl'>
         {children}
-        <span className={`h1-decorator absolute -bottom-1.5 left-0 h-1.5 w-full ${accentColor}`}></span>
+        <span
+          className={`h1-decorator absolute -bottom-1.5 left-0 z-0 h-1.5 w-full ${accentColor}`}
+        ></span>
       </h1>
       <div className='relative ms-auto'>
         <Decorators text={text[0]} position={position[1]} />

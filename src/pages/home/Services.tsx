@@ -74,10 +74,8 @@ export default function Services() {
   ]
   return (
     <Container classVars='lg:pt-24'>
-      <H1 desc='Ways I can help'>
-        Services
-      </H1>
-      <div className='services-container flex grid-cols-3 grid-rows-2 flex-col justify-between gap-6 lg:mt-16 lg:grid lg:gap-24'>
+      <H1 desc='Ways I can help'>Services</H1>
+      <div className='services-container flex grid-rows-2 flex-col justify-between gap-6 sm:grid-cols-2 md:grid lg:mt-16 lg:grid-cols-3 lg:gap-24'>
         {services.map((x) => {
           if (x.enabled) return <ServiceCard key={x._id} x={x} />
         })}
@@ -91,7 +89,7 @@ function ServiceCard({ x }: { x: TService }) {
     <article id={x._id} className='mx-auto w-max'>
       <div className='group relative aspect-square w-64 shadow-xl lg:w-[22.55rem]'>
         {/* Content */}
-        <div className='card-content  absolute top-0 z-10 flex h-full w-full origin-bottom translate-x-5 flex-col justify-between border-2 border-black bg-white p-8 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 lg:justify-evenly lg:p-16'>
+        <div className='card-content absolute top-0 z-10 flex h-full w-full origin-bottom translate-x-5 flex-col justify-between border-2 border-black bg-white p-8 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 lg:justify-evenly lg:p-16'>
           <SlantCurrentSvg classVars='text-teal-base-700 absolute bottom-[5px] right-[7.5px] aspect-square h-16 lg:h-20' />
           <div>
             <h3 className='font-urbanist text-lg font-semibold !leading-9 lg:text-xl'>
