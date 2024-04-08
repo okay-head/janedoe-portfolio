@@ -2,6 +2,7 @@ import Container from '../../components/Container'
 import pattern from './../../assets/squiggly-lines.svg'
 import bow from './../../assets/freehand-bow.svg'
 import Decorators from '../../components/Decorators'
+import { motion as m } from 'framer-motion'
 
 export default function CTA() {
   return (
@@ -28,13 +29,25 @@ export default function CTA() {
           />
           <h2 className='heading text-4xl lg:text-6xl'>Let's work together!</h2>
         </div>
-        <p className='body mt-4 text-lg text-text-subtitle lg:text-2xl'>
+        <m.p
+          initial={{ y: 4, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ delay: 0.4, duration: 0.3 }}
+          className='body mt-4 text-lg text-text-subtitle lg:text-2xl'
+        >
           I am an experienced professional with over 5 years of experience
-        </p>
-        <div className='text-text-subtitle lg:text-lg'>
+        </m.p>
+        <m.div
+          initial={{ y: 4, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ delay: 0.4, duration: 0.3 }}
+          className='text-text-subtitle lg:text-lg'
+        >
           <p className='body'>With 90+ projects and many happy clients</p>
           <p>You can trust me to turn your next big idea into reality</p>
-        </div>
+        </m.div>
 
         <div className='btn-wrapper group relative mx-auto mt-8 inline-block max-w-max'>
           <button

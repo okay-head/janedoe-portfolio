@@ -3,6 +3,8 @@ import download from './../../assets/download.svg'
 import slantBars from './../../assets/slant-bars.svg'
 import zigzag from './../../assets/zigzag.svg'
 import Decorators from '../../components/Decorators'
+import Heading1Wrapper from '../../components/animation/Heading1Wrapper'
+import Heading2Wrapper from '../../components/animation/Heading2Wrapper'
 export default function Main() {
   return (
     <main>
@@ -47,15 +49,22 @@ export default function Main() {
                 text='</H1>'
                 position='bottom-[-15%] lg:bottom-[-20%] right-[0%]'
               />
-              <h1 className='font-urbanist text-2xl font-semibold uppercase lg:text-3xl'>
-                Hi, I'm
-              </h1>
-              <h1 className='font-urbanist text-6xl font-semibold uppercase lg:text-8xl'>
-                john doe
-              </h1>
-              <h2 className='text-lg lg:text-xl'>
-                I develop 3D visuals, user interfaces and web applications.
-              </h2>
+              <Heading1Wrapper
+                text={`Hi, I'm`}
+                classVars={
+                  'font-urbanist text-2xl font-semibold uppercase lg:text-3xl'
+                }
+              />
+              <Heading1Wrapper
+                text={`john doe`}
+                classVars={
+                  'font-urbanist text-6xl font-semibold uppercase lg:text-8xl'
+                }
+              />
+              <Heading2Wrapper
+                text='I develop 3D visuals, user interfaces and web applications.'
+                classVars='text-lg lg:text-xl'
+              />
             </div>
           </section>
         </div>

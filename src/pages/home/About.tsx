@@ -2,6 +2,8 @@ import Container from '../../components/Container'
 import H1 from '../../components/H1'
 import DecoratorGroup from '../../components/DecoratorGroup'
 import useGlobalStore from '../../state/GlobalState'
+import Heading1Wrapper from '../../components/animation/Heading1Wrapper'
+import { motion as m } from 'framer-motion'
 
 export default function About() {
   const { about }: { about: TAbout } = useGlobalStore((state) => state.userObj)
@@ -27,30 +29,55 @@ export default function About() {
           </span>
         </section>
         <section className='about-text flex flex-col gap-6 xl:gap-10'>
-          <h1 className='text-2xl xl:text-4xl'>{about.subTitle}</h1>
-          <div className='description text-text-subtitle md:text-lg lg:leading-8 xl:text-xl'>
+          <Heading1Wrapper
+            text={about.subTitle}
+            classVars='text-2xl xl:text-4xl'
+          />
+          {/* <h1 className='text-2xl xl:text-4xl'>{about.subTitle}</h1> */}
+          <m.div
+            initial={{ y: 4, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.7 }}
+            transition={{ delay: 0.4, duration: 0.3 }}
+            className='description text-text-subtitle md:text-lg lg:leading-8 xl:text-xl'
+          >
             {about.description}
-          </div>
+          </m.div>
 
           <div className='mt-4 grid grid-rows-4 gap-x-6 gap-y-3 text-sm md:text-base xl:mt-10 xl:max-w-2xl xl:grid-cols-2 xl:grid-rows-2 xl:text-lg'>
-            <p>
-              <span className='font-medium'>Phone: </span>
-              {about.phoneNumber}
-            </p>
-            <p>
-              <span className='font-medium'>Email: </span>
-              {about.contactEmail}
-            </p>
-            <p>
-              <span className='font-medium'>Address: </span>
-              {about.contactEmail}
-            </p>
-            <p>
-              <span className='font-medium'>Preferred Method: </span>Email
-            </p>
+            <Span txt={about.phoneNumber} heading='Phone' factor={1} />
+            <Span txt={about.contactEmail} heading='Email' factor={1.3} />
+            <Span txt={about.address} heading='Address' factor={1.6} />
+            <Span txt={'Email'} heading='Preferred Method' factor={2} />
           </div>
         </section>
       </div>
     </Container>
+  )
+}
+/* initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ delay: 0.32, duration: 0.4 }} */
+
+function Span({
+  heading,
+  txt,
+  factor,
+}: {
+  heading: string
+  txt: string
+  factor: number
+}) {
+  return (
+    <m.p
+      initial={{ y: 4, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true, amount: 0.75 }}
+      transition={{ delay: 0.4 * factor, duration: 0.6 }}
+    >
+      <span className='font-medium'>{heading}: </span>
+      {txt}
+    </m.p>
   )
 }
