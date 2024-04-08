@@ -12,6 +12,7 @@
 > <p align="center">John Doe's portfolio. Designed in Figma.</p>
 
 ## [Demo](https://portfoli0v2.netlify.app/)
+![image](https://github.com/okay-head/johndoe-portfolio/assets/68184623/5d41061c-0a28-4bd9-9569-4326a47bb52e)
 
 
 ## Tech stack
@@ -77,5 +78,4 @@ Copyright © 2023 [Shashwat Jaiswal](https://github.com/okay-head).<br />
 This project is [MIT](/LICENSE) licensed.
 
 ## Acknowledgements
-
-Quick scaffolding readme by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)
+Thank you [Portfoliyo](https://www.theportfolyo.com/) for giving me the opportunity to work on this project
