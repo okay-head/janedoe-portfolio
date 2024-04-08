@@ -85,7 +85,7 @@ function ServiceCard({ x }: { x: TService }) {
             <h3 className='font-urbanist text-lg font-semibold !leading-9 lg:text-xl'>
               {x.name}
             </h3>
-            <p className='text-text-subtitle text-sm lg:text-base'>{x.desc}</p>
+            <p className='text-sm text-text-subtitle lg:text-base'>{x.desc}</p>
           </div>
 
           <span className='charge flex items-center text-sm font-medium'>
