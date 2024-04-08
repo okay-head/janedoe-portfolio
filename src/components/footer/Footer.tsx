@@ -72,7 +72,7 @@ export default function Footer() {
                       title={x.platform.toLowerCase()}
                       className='aspect-square w-6 transition-all duration-300'
                       id={x._id}
-                      src={`/src/assets/${x.platform.toLowerCase()}.svg`}
+                      src={`./../../src/assets/${x.platform.toLowerCase()}.svg`}
                       alt={x.platform.toLowerCase()}
                     />
                   </a>

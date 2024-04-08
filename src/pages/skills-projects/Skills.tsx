@@ -1,7 +1,7 @@
 import Container from '../../components/Container'
 import H1 from '../../components/H1'
-import pattern from '/src/assets/squiggly-lines.svg'
-import bow from '/src/assets/freehand-bow.svg'
+import pattern from './../../assets/squiggly-lines.svg'
+import bow from './../../assets/freehand-bow.svg'
 import useGlobalStore from '../../state/GlobalState'
 
 export default function Skills() {

@@ -1,5 +1,5 @@
-import pattern from '/src/assets/squiggly-lines.svg'
-import bow from '/src/assets/freehand-bow.svg'
+import pattern from './../assets/squiggly-lines.svg'
+import bow from './../assets/freehand-bow.svg'
 
 export default function DecoratorGroup() {
   return (
