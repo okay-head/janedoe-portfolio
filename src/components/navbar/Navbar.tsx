@@ -33,9 +33,9 @@ export default function Navbar() {
   return (
     // wont be using container for nav
     <Container background={`m-4 inset-0 !fixed z-50 bg-${bgColor}`}>
-      <button className='absolute left-5 top-5 z-[60] font-light uppercase tracking-[0.2em]  text-text-lighter transition-all hover:tracking-[0.27em] lg:left-24 lg:top-11 lg:text-lg'>
+      {/* <button className='absolute left-5 top-5 z-[60] font-light uppercase tracking-[0.2em]  text-text-lighter transition-all hover:tracking-[0.27em] lg:left-24 lg:top-11 lg:text-lg'>
         Preferences
-      </button>
+      </button> */}
       <nav className='m-4 mt-32 flex select-none flex-col items-center gap-28 lg:mt-16 lg:items-stretch'>
         <section className='nav-body my-auto flex justify-between'>
           <div className='nav-links flex flex-col gap-8 lg:gap-10'>
