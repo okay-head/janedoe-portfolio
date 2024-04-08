@@ -5,7 +5,7 @@ type T = {
 export default function Decorators({ text, position }: T) {
   return (
     <span
-      className={`decorators font-firaCode absolute inline-block text-sm font-light text-text-lighter lg:text-lg ${position}`}
+      className={`decorators absolute inline-block font-firaCode text-sm font-light text-text-lighter lg:text-lg ${position}`}
     >
       {`${text}`}
     </span>

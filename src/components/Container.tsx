@@ -5,7 +5,7 @@ type T = {
 }
 export default function Container({
   children,
-  background = 'bg-teal-base-100 ',
+  background = 'bg-teal-base-150 ',
   classVars = '',
 }: TChild & T) {
   return (

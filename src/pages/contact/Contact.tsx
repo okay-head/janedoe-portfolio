@@ -3,8 +3,12 @@ import DecoratorGroup from '../../components/DecoratorGroup'
 import H1 from '../../components/H1'
 import { MapPin, Phone, Mail } from 'react-feather'
 import ContactForm from './ContactForm'
+import useGlobalStore from '../../state/GlobalState'
 
 export default function Contact() {
+  const { about }: { about: TAbout } = useGlobalStore((state) => state.userObj)
+  const { address, phoneNumber, contactEmail } = about
+
   return (
     <Container background='bg-orangeAccent-150 min-h-screen lg:!py-14'>
       <H1 desc='Reach out to me' accentColor='bg-orangeAccent-700'>
@@ -26,7 +30,7 @@ export default function Contact() {
             Let’s build something extraordinary
           </h2>
         </div>
-        <div className='body text-text-subtitle mt-4 text-lg lg:text-2xl'>
+        <div className='body mt-4 text-lg text-text-subtitle lg:text-2xl'>
           <p>Have an idea in mind?</p>
           <p>You can always reach out to me</p>
         </div>
@@ -40,7 +44,7 @@ export default function Contact() {
             </div>
             <div className='text'>
               <h3 className='text-xl font-medium'>Phone</h3>
-              <h3 className='text-sm lg:text-base'>9203028080</h3>
+              <h3 className='text-sm lg:text-base'>{phoneNumber}</h3>
             </div>
           </article>
           <article className='contact-card flex items-center gap-2'>
@@ -49,7 +53,7 @@ export default function Contact() {
             </div>
             <div className='text'>
               <h3 className='text-xl font-medium'>Mail</h3>
-              <h3 className='text-sm lg:text-base'>abc@email</h3>
+              <h3 className='text-sm lg:text-base'>{contactEmail}</h3>
             </div>
           </article>
           <article className='contact-card flex items-center gap-2'>
@@ -58,7 +62,7 @@ export default function Contact() {
             </div>
             <div className='text'>
               <h3 className='text-xl font-medium'>Location</h3>
-              <h3 className='text-sm lg:text-base'>jflajljlj</h3>
+              <h3 className='text-sm lg:text-base'>{address}</h3>
             </div>
           </article>
         </section>

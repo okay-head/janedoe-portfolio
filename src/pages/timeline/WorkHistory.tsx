@@ -3,143 +3,149 @@ import DecoratorGroup from '../../components/DecoratorGroup'
 import H1 from '../../components/H1'
 import { Briefcase, MapPin } from 'react-feather'
 import { format } from 'fecha'
+import useGlobalStore from '../../state/GlobalState'
 
 export default function WorkHistory() {
-  const timeline = [
-    {
-      company_name: 'StartupX',
-      summary:
-        'Contributed to the development of a new social networking platform targeting niche communities.',
-      sequence: 6,
-      startDate: '2023-11-13T00:00:00.000Z',
-      endDate: '2024-03-13T00:00:00.000Z',
-      jobTitle: 'Backend Developer',
-      jobLocation: ' Los Angeles, CA',
-      bulletPoints: [
-        'Developed scalable backend services using Python and Django framework.',
-        '\nImplemented user authentication and authorization using OAuth 2.0 and JWT tokens.',
-        '\nDesigned and optimized database schemas for performance and scalability.',
-        '\nImplemented real-time messaging features using WebSockets and Redis.',
-        '\nWorked closely with frontend developers to design APIs and ensure smooth integration with the frontend.',
-      ],
-      forEducation: true,
-      enabled: true,
-      _id: '65f1fe900556c3f887e9db94',
-    },
-    {
-      company_name: 'CloudTech Innovations',
-      summary:
-        'Contributed to the development of a cloud-based SaaS platform for managing IT infrastructure.',
-      sequence: 4,
-      startDate: '2024-03-06T00:00:00.000Z',
-      endDate: '2024-03-20T00:00:00.000Z',
-      jobTitle: 'Software Developer',
-      jobLocation: 'Austin, TX',
-      bulletPoints: [
-        'Developed microservices using Node.js and deployed them using Docker containers.',
-        '\nImplemented user authentication and authorization using OAuth 2.0 and JWT tokens.',
-        '\nIntegrated with cloud providers such as AWS and Azure to manage infrastructure resources.',
-        '\nDesigned and implemented RESTful APIs for various platform features.',
-        '\nCollaborated with DevOps engineers to automate deployment and testing processes.',
-      ],
-      forEducation: false,
-      enabled: true,
-      _id: '65f1fe4e0556c3f887e9db22',
-    },
-    {
-      company_name: 'Digital Solutions Co.',
-      summary:
-        'Contributed to the development of a comprehensive CRM solution for enterprise clients.',
-      sequence: 3,
-      startDate: '2023-10-11T00:00:00.000Z',
-      endDate: '2024-03-28T00:00:00.000Z',
-      jobTitle: 'Frontend Developer',
-      jobLocation: 'Seattle, WA',
-      bulletPoints: [
-        'Implemented user interface components using AngularJS and TypeScript.',
-        '\nCollaborated with backend developers to integrate frontend components with RESTful APIs.',
-        '\nDeveloped custom data visualizations and dashboards using D3.js and Chart.js.',
-        '\nParticipated in sprint planning meetings and provided accurate estimates for feature development.',
-        '\nConducted A/B tests and analyzed user feedback to iterate on product features.',
-        '',
-      ],
-      forEducation: false,
-      enabled: true,
-      _id: '65f1fe1e0556c3f887e9dab2',
-    },
-    {
-      company_name: 'DataTech Solutions',
-      summary:
-        'Played a key role in developing a data analytics platform for a diverse range of clients.',
-      sequence: 2,
-      startDate: '2024-03-13T00:00:00.000Z',
-      endDate: '2024-03-22T00:00:00.000Z',
-      jobTitle: ' Full Stack Developer',
-      jobLocation: ' New York, NY',
-      bulletPoints: [
-        'Developed RESTful APIs and integrated third-party services to ingest and process large volumes of data.',
-        '\nDesigned and implemented responsive user interfaces using React.js and Bootstrap.',
-        '\nWorked closely with data scientists to integrate machine learning models into the platform.',
-        '\nOptimized database queries and improved overall system performance.',
-        '\nConducted unit tests and participated in peer code reviews to ensure code quality.\n',
-      ],
-      forEducation: true,
-      enabled: true,
-      _id: '65f1fdef0556c3f887e9da44',
-    },
-    {
-      company_name: 'Tech Innovations Inc.',
-      summary:
-        'Contributed to the development of a cutting-edge mobile application aimed at revolutionizing the e-commerce industry.\n',
-      sequence: 1,
-      icon: {
-        public_id: 'portfolio3/1710357917833-0mic4.png',
-        url: 'https://portfolio-image-store.s3.ap-south-1.amazonaws.com/portfolio3/1710357917833-0mic4.png',
-      },
-      startDate: '2024-01-03T00:00:00.000Z',
-      endDate: '2024-03-08T00:00:00.000Z',
-      jobTitle: 'Software Engineer',
-      jobLocation: 'San Francisco, CA',
-      bulletPoints: [
-        'Implemented core features and functionalities using React Native.',
-        'Collaborated closely with designers and product managers to iterate on user feedback.',
-        'Conducted code reviews and provided constructive feedback to team members.',
-        'Resolved complex technical challenges to ensure the smooth operation of the application.',
-        'Participated in daily stand-up meetings and sprint planning sessions.',
-      ],
-      forEducation: false,
-      enabled: true,
-      _id: '65f1fd9e0556c3f887e9d9d8',
-    },
-    {
-      company_name: 'ThePortfolyo',
-      summary: '',
-      sequence: 1,
-      icon: {
-        public_id: '1706289470834-siro83',
-        url: 'https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706289470834-siro83',
-      },
-      startDate: '2023-12-13T00:00:00.000Z',
-      endDate: '2024-01-25T00:00:00.000Z',
-      jobTitle: 'Software Developer',
-      jobLocation: 'Bangalore',
-      bulletPoints: [
-        'Design and build full website',
-        ' Optimized Site ',
-        ' SEO implemented',
-      ],
-      forEducation: true,
-      enabled: true,
-      _id: '65b3e93feb20546ae6d46369',
-    },
-  ]
+  // const timeline = [
+  //   {
+  //     company_name: 'StartupX',
+  //     summary:
+  //       'Contributed to the development of a new social networking platform targeting niche communities.',
+  //     sequence: 6,
+  //     startDate: '2023-11-13T00:00:00.000Z',
+  //     endDate: '2024-03-13T00:00:00.000Z',
+  //     jobTitle: 'Backend Developer',
+  //     jobLocation: ' Los Angeles, CA',
+  //     bulletPoints: [
+  //       'Developed scalable backend services using Python and Django framework.',
+  //       '\nImplemented user authentication and authorization using OAuth 2.0 and JWT tokens.',
+  //       '\nDesigned and optimized database schemas for performance and scalability.',
+  //       '\nImplemented real-time messaging features using WebSockets and Redis.',
+  //       '\nWorked closely with frontend developers to design APIs and ensure smooth integration with the frontend.',
+  //     ],
+  //     forEducation: true,
+  //     enabled: true,
+  //     _id: '65f1fe900556c3f887e9db94',
+  //   },
+  //   {
+  //     company_name: 'CloudTech Innovations',
+  //     summary:
+  //       'Contributed to the development of a cloud-based SaaS platform for managing IT infrastructure.',
+  //     sequence: 4,
+  //     startDate: '2024-03-06T00:00:00.000Z',
+  //     endDate: '2024-03-20T00:00:00.000Z',
+  //     jobTitle: 'Software Developer',
+  //     jobLocation: 'Austin, TX',
+  //     bulletPoints: [
+  //       'Developed microservices using Node.js and deployed them using Docker containers.',
+  //       '\nImplemented user authentication and authorization using OAuth 2.0 and JWT tokens.',
+  //       '\nIntegrated with cloud providers such as AWS and Azure to manage infrastructure resources.',
+  //       '\nDesigned and implemented RESTful APIs for various platform features.',
+  //       '\nCollaborated with DevOps engineers to automate deployment and testing processes.',
+  //     ],
+  //     forEducation: false,
+  //     enabled: true,
+  //     _id: '65f1fe4e0556c3f887e9db22',
+  //   },
+  //   {
+  //     company_name: 'Digital Solutions Co.',
+  //     summary:
+  //       'Contributed to the development of a comprehensive CRM solution for enterprise clients.',
+  //     sequence: 3,
+  //     startDate: '2023-10-11T00:00:00.000Z',
+  //     endDate: '2024-03-28T00:00:00.000Z',
+  //     jobTitle: 'Frontend Developer',
+  //     jobLocation: 'Seattle, WA',
+  //     bulletPoints: [
+  //       'Implemented user interface components using AngularJS and TypeScript.',
+  //       '\nCollaborated with backend developers to integrate frontend components with RESTful APIs.',
+  //       '\nDeveloped custom data visualizations and dashboards using D3.js and Chart.js.',
+  //       '\nParticipated in sprint planning meetings and provided accurate estimates for feature development.',
+  //       '\nConducted A/B tests and analyzed user feedback to iterate on product features.',
+  //       '',
+  //     ],
+  //     forEducation: false,
+  //     enabled: true,
+  //     _id: '65f1fe1e0556c3f887e9dab2',
+  //   },
+  //   {
+  //     company_name: 'DataTech Solutions',
+  //     summary:
+  //       'Played a key role in developing a data analytics platform for a diverse range of clients.',
+  //     sequence: 2,
+  //     startDate: '2024-03-13T00:00:00.000Z',
+  //     endDate: '2024-03-22T00:00:00.000Z',
+  //     jobTitle: ' Full Stack Developer',
+  //     jobLocation: ' New York, NY',
+  //     bulletPoints: [
+  //       'Developed RESTful APIs and integrated third-party services to ingest and process large volumes of data.',
+  //       '\nDesigned and implemented responsive user interfaces using React.js and Bootstrap.',
+  //       '\nWorked closely with data scientists to integrate machine learning models into the platform.',
+  //       '\nOptimized database queries and improved overall system performance.',
+  //       '\nConducted unit tests and participated in peer code reviews to ensure code quality.\n',
+  //     ],
+  //     forEducation: true,
+  //     enabled: true,
+  //     _id: '65f1fdef0556c3f887e9da44',
+  //   },
+  //   {
+  //     company_name: 'Tech Innovations Inc.',
+  //     summary:
+  //       'Contributed to the development of a cutting-edge mobile application aimed at revolutionizing the e-commerce industry.\n',
+  //     sequence: 1,
+  //     icon: {
+  //       public_id: 'portfolio3/1710357917833-0mic4.png',
+  //       url: 'https://portfolio-image-store.s3.ap-south-1.amazonaws.com/portfolio3/1710357917833-0mic4.png',
+  //     },
+  //     startDate: '2024-01-03T00:00:00.000Z',
+  //     endDate: '2024-03-08T00:00:00.000Z',
+  //     jobTitle: 'Software Engineer',
+  //     jobLocation: 'San Francisco, CA',
+  //     bulletPoints: [
+  //       'Implemented core features and functionalities using React Native.',
+  //       'Collaborated closely with designers and product managers to iterate on user feedback.',
+  //       'Conducted code reviews and provided constructive feedback to team members.',
+  //       'Resolved complex technical challenges to ensure the smooth operation of the application.',
+  //       'Participated in daily stand-up meetings and sprint planning sessions.',
+  //     ],
+  //     forEducation: false,
+  //     enabled: true,
+  //     _id: '65f1fd9e0556c3f887e9d9d8',
+  //   },
+  //   {
+  //     company_name: 'ThePortfolyo',
+  //     summary: '',
+  //     sequence: 1,
+  //     icon: {
+  //       public_id: '1706289470834-siro83',
+  //       url: 'https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706289470834-siro83',
+  //     },
+  //     startDate: '2023-12-13T00:00:00.000Z',
+  //     endDate: '2024-01-25T00:00:00.000Z',
+  //     jobTitle: 'Software Developer',
+  //     jobLocation: 'Bangalore',
+  //     bulletPoints: [
+  //       'Design and build full website',
+  //       ' Optimized Site ',
+  //       ' SEO implemented',
+  //     ],
+  //     forEducation: true,
+  //     enabled: true,
+  //     _id: '65b3e93feb20546ae6d46369',
+  //   },
+  // ]
 
   // filter by sequence
+
+  const { timeline }: { timeline: TTimeline[] } = useGlobalStore(
+    (state) => state.userObj,
+  )
+
   const sortedTimeline = timeline.sort((x, y) => x.sequence - y.sequence)
 
   // filter by forEducation
   const workTimeline = sortedTimeline.filter((x) => x.forEducation == false)
-  const educationTimeline = sortedTimeline.filter((x) => x.forEducation == true)
+  // const educationTimeline = sortedTimeline.filter((x) => x.forEducation == true)
 
   return (
     <Container background='bg-violetAccent-150 min-h-screen lg:!py-14'>
@@ -185,7 +191,7 @@ function Card({ x }: { x: TTimeline }) {
           >
             {`${formatDate(startDate)} - ${formatDate(endDate)}`}
           </span>
-          <span className='btn-ouline bg-violetAccent-900 absolute left-1 top-1 z-0 h-full w-full translate-x-[2px] translate-y-[2px] border border-black transition-all group-hover:translate-x-0 group-hover:translate-y-0'></span>
+          <span className='btn-ouline absolute left-1 top-1 z-0 h-full w-full translate-x-[2px] translate-y-[2px] border border-black bg-violetAccent-900 transition-all group-hover:translate-x-0 group-hover:translate-y-0'></span>
         </div>
         {/* card body */}
         <section className='work-body flex flex-col gap-4 border border-black bg-white px-9 py-5 pt-4 lg:px-12'>
@@ -197,7 +203,7 @@ function Card({ x }: { x: TTimeline }) {
               <h4 className='designation text-text-subtitle'>{x.jobTitle}</h4>
             </div>
 
-            <span className='location text-text-subtitle mt-1 flex gap-1 lg:mt-0'>
+            <span className='location mt-1 flex gap-1 text-text-subtitle lg:mt-0'>
               <MapPin strokeWidth={'1.8px'} size={16} className='mt-[2.5px]' />
               <span>{x.jobLocation}</span>
             </span>

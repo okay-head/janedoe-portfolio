@@ -4,12 +4,15 @@ import { useEffect, useState } from 'react'
 // including loading and such
 export default function useFetchWithAbort(url: string) {
   const [data, setData] = useState<TData | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   useEffect(() => {
     // init abortController to prevent race condition
     const controller = new AbortController()
     const signal = controller.signal
 
     const getData = async () => {
+      setLoading(true)
       try {
         const res = await fetch(url, { signal })
 
@@ -18,7 +21,12 @@ export default function useFetchWithAbort(url: string) {
 
         const data = await res.json()
         setData(data)
+        setLoading(false)
+        setError(null)
       } catch (error) {
+        const errAny = error as any
+        setLoading(false)
+        setError(errAny.message)
         console.error(error)
       }
     }
@@ -30,5 +38,5 @@ export default function useFetchWithAbort(url: string) {
     }
   }, [url])
 
-  return data
+  return { data, loading, error }
 }

@@ -28,7 +28,7 @@ export default function CTA() {
           />
           <h2 className='heading text-4xl lg:text-6xl'>Let's work together!</h2>
         </div>
-        <p className='body text-text-subtitle mt-4 text-lg lg:text-2xl'>
+        <p className='body mt-4 text-lg text-text-subtitle lg:text-2xl'>
           I am an experienced professional with over 5 years of experience
         </p>
         <div className='text-text-subtitle lg:text-lg'>
@@ -39,7 +39,7 @@ export default function CTA() {
         <div className='btn-wrapper group relative mx-auto mt-8 inline-block max-w-max'>
           <button
             id='hireme'
-            className='bg-teal-base-100 relative z-10 border border-black px-6 py-1.5'
+            className='relative z-10 border border-black bg-teal-base-100 px-6 py-1.5'
           >
             HIRE ME
           </button>
