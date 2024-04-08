@@ -6,6 +6,7 @@ import { Tool, GitHub, ExternalLink, XCircle } from 'react-feather'
 import SlantCurrentSvg from '../../assets/slant-bars-current'
 import { createContext, useContext, useEffect, useState } from 'react'
 import useGlobalStore from '../../state/GlobalState'
+import { motion as m } from 'framer-motion'
 
 export default function Projects() {
   // const projects = [
@@ -249,14 +250,16 @@ export default function Projects() {
       </H1>
       <Decorators />
       <section className='projects-container mb-24 flex flex-col gap-10 sm:grid sm:grid-cols-2 lg:mb-16 lg:grid-cols-4'>
-        {sortedProjects.map((x) => {
-          if (x.enabled) return <Card key={x._id} x={x} />
+        {sortedProjects.map((x, i) => {
+          const factor = i / 4 < 3 ? i / 4 : 3
+          if (x.enabled) return <Card key={x._id} x={x} factor={factor} />
         })}
       </section>
     </Container>
   )
 }
 
+// [REFACTORING] Move subComponents to separate folder
 type Open = boolean
 type TContext = {
   open: Open
@@ -265,7 +268,7 @@ type TContext = {
 const ModalContext = createContext<TContext | null>(null)
 export { ModalContext }
 
-function Card({ x }: { x: TProject }) {
+function Card({ x, factor }: { x: TProject; factor: number }) {
   // instead pass down this state as context
   const [open, setOpen] = useState(false)
 
@@ -281,7 +284,15 @@ function Card({ x }: { x: TProject }) {
   return (
     <ModalContext.Provider value={{ open, setOpen }}>
       <Modal x={x} />
-      <article
+      <m.article
+        initial={{ x: -30, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{
+          delay: 0.3 * factor,
+          type: 'ease-in',
+          duration: 0.8,
+        }}
         id={x._id}
         className='project-card group relative aspect-[1.6] border-2 border-black shadow-sm'
       >
@@ -305,7 +316,7 @@ function Card({ x }: { x: TProject }) {
         >
           View more
         </button>
-      </article>
+      </m.article>
     </ModalContext.Provider>
   )
 }
