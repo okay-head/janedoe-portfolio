@@ -82,7 +82,7 @@ export default function Main() {
             <span className='btn-ouline absolute left-1 top-1 z-0 h-full w-full translate-x-1 translate-y-1 border border-black bg-slate-600 transition-all group-hover:translate-x-0 group-hover:translate-y-0'></span>
             <button
               id='resume'
-              className='relative z-10 border border-black bg-teal-base-100 px-6 py-1.5'
+              className='relative z-10 border border-black bg-white px-6 py-1.5'
             >
               Resume
               <img

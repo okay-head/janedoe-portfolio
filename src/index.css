@@ -6,12 +6,10 @@
 
 /* 🔴 Need custom sizing for text! */
 :root {
-  --teal-base-700: hsl(184, 60%, 83%);
-  --greenAccent-700: hsl(145, 32%, 85%);
+  --teal-base-700: hsl(184, 60%, 75%);
+  --greenAccent-700: hsl(139, 90%, 90%);
   --violetAccent-700: hsl(252, 100%, 88%);
-
-  --orangeAccent-900: hsl(32, 100%, 75%);
-  /* --orangeAccent-700: hsl(32, 100%, 75%); */
+  --orangeAccent-900: hsl(34, 100%, 76%);
 
   --gray: #2e2e2e00;
 }

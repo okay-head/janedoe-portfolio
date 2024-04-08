@@ -52,7 +52,7 @@ export default function CTA() {
         <div className='btn-wrapper group relative mx-auto mt-8 inline-block max-w-max'>
           <button
             id='hireme'
-            className='relative z-10 border border-black bg-teal-base-100 px-6 py-1.5'
+            className='relative z-10 border border-black bg-white px-6 py-1.5'
           >
             HIRE ME
           </button>

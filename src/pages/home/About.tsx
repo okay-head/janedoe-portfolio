@@ -20,7 +20,7 @@ export default function About() {
           <m.span
             initial={{ scaleX: 1 }}
             whileInView={{ scaleX: 0 }}
-            viewport={{ once: true, amount: 1 }}
+            viewport={{ once: true, amount: 0.4 }}
             transition={{ delay: 0.3, duration: 0.4 }}
             className={`curtain absolute inset-0 z-[100] origin-left bg-slate-600`}
           ></m.span>

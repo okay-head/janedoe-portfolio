@@ -6,11 +6,13 @@ import polkaDots from './../../assets/polka-dots.png'
 import Container from '../Container'
 import { useEffect } from 'react'
 import useGlobalStore from '../../state/GlobalState'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { motion as m } from 'framer-motion'
 
 export default function Navbar() {
   const navIsOpen = useGlobalStore((state) => state.navOpen)
+  const bgColor = useGlobalStore((state) => state.currentColor)
+  const setBgColor = useGlobalStore((state) => state.setCurrentColor)
 
   useEffect(() => {
     if (navIsOpen) document.body.classList.add('modal-fix')
@@ -23,14 +25,14 @@ export default function Navbar() {
 
   const socialIcons = [{ facebook }, { instagram }, { linkedin }, { twitter }]
   const navLinks = [
-    ['Home', '/'],
-    ['Skills and projects', '/skills'],
-    ['Work and education', '/timeline'],
-    ['Contact', '/contact'],
+    ['Home', '/', 'teal-base-700'],
+    ['Skills and projects', '/skills', 'greenAccent-700'],
+    ['Work and education', '/timeline', 'violetAccent-700'],
+    ['Contact', '/contact', 'orangeAccent-700'],
   ]
   return (
     // wont be using container for nav
-    <Container background='m-4 bg-orangeAccent-150 inset-0 !fixed z-50'>
+    <Container background={`m-4 inset-0 !fixed z-50 bg-${bgColor}`}>
       <button className='absolute left-5 top-5 z-[60] font-light uppercase tracking-[0.2em]  text-text-lighter transition-all hover:tracking-[0.27em] lg:left-24 lg:top-11 lg:text-lg'>
         Preferences
       </button>
@@ -38,7 +40,12 @@ export default function Navbar() {
         <section className='nav-body my-auto flex justify-between'>
           <div className='nav-links flex flex-col gap-8 lg:gap-10'>
             {navLinks.map((x, i) => (
-              <NavItem key={i} txt={x} factor={i * 1.2} />
+              <NavItem
+                key={i}
+                txt={x}
+                factor={i * 1.2}
+                setBgColor={setBgColor}
+              />
             ))}
           </div>
           <div className='graphics relative me-[10vw] hidden grid-cols-2 grid-rows-2 gap-6 lg:grid'>
@@ -83,13 +90,35 @@ export default function Navbar() {
   )
 }
 
-function NavItem({ txt, factor }: { txt: string[]; factor: number }) {
+function NavItem({
+  txt,
+  factor,
+  setBgColor,
+}: {
+  txt: string[]
+  factor: number
+  setBgColor: any
+}) {
   const toggleNav = useGlobalStore((state) => state.togglenavOpen)
   const location = useLocation()
+  const navigate = useNavigate()
+
+  function scrollPromise(time: number) {
+    return new Promise((resolve) => {
+      document.documentElement.scrollTop = 0
+      setTimeout(resolve, time)
+    })
+  }
 
   const handleClick = () => {
-    if (location.pathname != txt[1]) document.documentElement.scrollTop = 0
-    toggleNav()
+    if (location.pathname == txt[1]) toggleNav()
+    else {
+      scrollPromise(200).then(() => {
+        setBgColor(txt[2])
+        navigate(txt[1])
+        toggleNav()
+      })
+    }
   }
   return (
     <m.span
@@ -102,13 +131,12 @@ function NavItem({ txt, factor }: { txt: string[]; factor: number }) {
         duration: 0.3,
       }}
     >
-      <Link
-        to={txt[1]}
+      <button
         onClick={handleClick}
         className='inline-block cursor-pointer text-center text-3xl font-light transition-all hover:text-white lg:text-left lg:text-6xl'
       >
         {txt[0]}
-      </Link>
+      </button>
     </m.span>
   )
 }
