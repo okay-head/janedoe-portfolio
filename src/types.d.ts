@@ -999,3 +999,5 @@ type TService = (typeof jsonData.user.services)[0]
 type TSKills = (typeof jsonData.user.skills)[0]
 
 type TAbout = typeof jsonData.user.about
+
+type TSocial = typeof jsonData.user.social_handles
