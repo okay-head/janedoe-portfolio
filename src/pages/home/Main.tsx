@@ -7,16 +7,12 @@ export default function Main() {
   return (
     <main>
       <div
-        className={`container-custom relative m-4 mb-0 flex min-h-screen flex-col justify-evenly bg-teal-base-150 p-5 lg:min-h-[calc(100vh-5rem)] lg:p-9`}
+        className={`container-custom bg-teal-base-150 relative m-4 mb-0 flex min-h-screen flex-col justify-evenly p-5 lg:min-h-[calc(100vh-5rem)] lg:p-9`}
       >
-        {/* <button className='nav-toggle fixed right-9 top-10 z-50 lg:right-12 lg:top-11'>
-          <img src={hamburger} alt='Open Menu' />
-        </button>
- */}
         <div className='adjust-top-spacing h-4 lg:h-14'></div>
         <div className='grid grid-rows-2 lg:min-h-[75vh] lg:grid-cols-2 lg:grid-rows-1 lg:gap-2'>
           <section className='hero-img min-h-[40vh] lg:order-2'>
-            <div className='hero-img-bg bg-teal-base-400 relative mx-auto grid h-full max-w-[40rem] place-content-center overflow-hidden'>
+            <div className='hero-img-bg relative mx-auto grid h-full max-w-[40rem] place-content-center overflow-hidden bg-teal-base-400'>
               <div className='relative aspect-square h-40 lg:h-64'>
                 <div className='hero-img-placeholder relative z-10 h-full w-full bg-slate-600'>
                   {/* hero image here */}
@@ -68,7 +64,7 @@ export default function Main() {
             <span className='btn-ouline absolute left-1 top-1 z-0 h-full w-full translate-x-1 translate-y-1 border border-black bg-slate-600 transition-all group-hover:translate-x-0 group-hover:translate-y-0'></span>
             <button
               id='resume'
-              className='relative z-10 border border-black bg-teal-base-100 px-6 py-1.5'
+              className='bg-teal-base-100 relative z-10 border border-black px-6 py-1.5'
             >
               Resume
               <img
@@ -78,26 +74,6 @@ export default function Main() {
               />
             </button>
           </div>
-
-          {/* <div className='btn-wrapper group relative mx-auto mt-8 inline-block max-w-max'>
-          <button
-            id='hireme'
-            className='bg-teal-base-100 relative z-10 border border-black px-6 py-1.5'
-          >
-            HIRE ME
-          </button>
-          <span className='btn-ouline absolute left-1 top-1 z-0 h-full w-full translate-x-1 translate-y-1 border border-black bg-slate-600 transition-all group-hover:translate-x-0 group-hover:translate-y-0'></span>
-        </div> */}
-
-          {/* <div className='btn-wrapper group relative inline-block'>
-            <span className='btn-ouline absolute left-3 top-3 z-0 h-full w-full -translate-x-3 -translate-y-3 border border-black bg-slate-600 transition-all group-hover:-translate-y-0 group-hover:translate-x-0'></span>
-            <button
-              id='hireme'
-              className='bg-teal-base-100 relative z-10 border border-black px-8 py-1.5'
-            >
-              Hire me
-            </button>
-          </div> */}
         </div>
       </div>
     </main>

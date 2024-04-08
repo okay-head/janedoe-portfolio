@@ -1,6 +1,9 @@
 import Container from '../../components/Container'
 import H1 from '../../components/H1'
 import useGlobalStore from '../../state/GlobalState'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 export default function Testimonials() {
   // const testimonials = [
@@ -68,15 +71,58 @@ export default function Testimonials() {
   const { testimonials }: { testimonials: TTestimonial[] } = useGlobalStore(
     (state) => state.userObj,
   )
+  const sliderSettings = {
+    arrows: false,
+    autoplay: true,
+    dots: false,
+    infinite: true,
+    speed: 1300,
+    autoplaySpeed: 2500,
+    centerMode: true,
+    centerPadding: '350px',
+    pauseOnHover: true,
+    useTransform: false,
 
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: false,
+        },
+      },
+      {
+        breakpoint: 1023,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          centerMode: false,
+        },
+      },
+    ],
+
+    // slidesToShow: 0.5,
+    // slidesToScroll: 0.5,
+    // slidesPerRow: 0.3,
+  }
   return (
     <Container>
       <H1 desc='Garnering trust along the way'>Testimonials</H1>
 
-      <div className='testimonial-cards-container mx-auto flex max-w-screen-2xl flex-col items-start gap-8 overflow-x-auto lg:flex-row'>
-        {testimonials.map((x) => {
-          if (x.enabled) return <Card key={x._id} x={x} />
-        })}
+      {/* <div className='testimonial-cards-container mx-auto flex max-w-screen-2xl flex-col items-start gap-8 overflow-x-auto lg:flex-row'> */}
+      <div className='testimonial-cards-container mx-auto mt-24'>
+        <Slider {...sliderSettings}>
+          {testimonials.map((x) => {
+            if (x.enabled) return <Card key={x._id} x={x} />
+          })}
+        </Slider>
       </div>
     </Container>
   )
@@ -86,7 +132,7 @@ function Card({ x }: { x: TTestimonial }) {
   return (
     <article
       id={x._id}
-      className='testimonial-card relative border-2 border-black bg-white p-8 lg:min-w-[30rem] lg:p-10'
+      className='testimonial-card relative mx-4 border-2 border-black bg-white p-8 lg:h-[333px] lg:min-w-[30rem] lg:p-10'
     >
       <div className='card-body relative my-6 lg:text-justify'>{x.review}</div>
       <div className='author mt-4 flex items-center gap-4'>
