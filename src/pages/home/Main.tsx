@@ -9,7 +9,7 @@ export default function Main() {
       <div
         className={`container-custom relative m-4 mb-0 flex min-h-screen flex-col justify-evenly bg-teal-base-150 p-5 lg:min-h-[calc(100vh-5rem)] lg:p-9`}
       >
-        <div className='adjust-top-spacing h-4 lg:h-14'></div>
+        <div className='adjust-top-spacing h-4 lg:h-6'></div>
         <div className='grid grid-rows-2 lg:min-h-[75vh] lg:grid-cols-2 lg:grid-rows-1 lg:gap-2'>
           <section className='hero-img min-h-[40vh] lg:order-2'>
             <div className='hero-img-bg bg-teal-base-400 relative mx-auto grid h-full max-w-[40rem] place-content-center overflow-hidden'>

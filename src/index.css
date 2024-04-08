@@ -18,6 +18,31 @@
 html {
   scroll-behavior: smooth;
 }
+
+#quote::before {
+  transform: scale(0.6);
+  position: absolute;
+  content: '';
+  top: -0.5rem;
+  left: -1.6rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url('./assets/quotes.svg');
+  background-repeat: no-repeat;
+}
+#quote::after {
+  position: absolute;
+  content: '';
+  bottom: -0.5rem;
+  right: -1.6rem;
+  transform: rotate(180deg) scale(0.6);
+  /* transform: scale(0.7); */
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url('./assets/quotes.svg');
+  background-repeat: no-repeat;
+}
+
 .modal-fix-blur {
   height: 100vh;
   overflow-y: hidden;
@@ -50,6 +75,11 @@ html {
 }
 .hero-img-placeholder {
   background-image: url('https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706283290608-n4hq7k');
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.about-hero-img-placeholder {
+  background-image: url('https://portfolio-image-store.s3.ap-south-1.amazonaws.com/portfolio3/1711525564606-1j950d.webp');
   background-position: 50% 50%;
   background-size: cover;
 }
