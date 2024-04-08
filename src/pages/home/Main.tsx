@@ -5,6 +5,8 @@ import zigzag from './../../assets/zigzag.svg'
 import Decorators from '../../components/Decorators'
 import Heading1Wrapper from '../../components/animation/Heading1Wrapper'
 import Heading2Wrapper from '../../components/animation/Heading2Wrapper'
+import { motion as m } from 'framer-motion'
+
 export default function Main() {
   return (
     <main>
@@ -16,6 +18,13 @@ export default function Main() {
           <section className='hero-img min-h-[40vh] lg:order-2'>
             <div className='hero-img-bg bg-teal-base-400 relative mx-auto grid h-full max-w-[40rem] place-content-center overflow-hidden'>
               <div className='relative aspect-square h-40 lg:h-64'>
+                <m.span
+                  initial={{ scaleX: 1 }}
+                  whileInView={{ scaleX: 0 }}
+                  viewport={{ once: true, amount: 1 }}
+                  transition={{ delay: 0.3, duration: 0.4 }}
+                  className={`curtain absolute inset-0 z-[100] origin-left bg-slate-600`}
+                ></m.span>
                 <div className='hero-img-placeholder relative z-10 h-full w-full bg-slate-600'>
                   {/* hero image here */}
                 </div>

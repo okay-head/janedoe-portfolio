@@ -17,6 +17,13 @@ export default function About() {
 
       <div className='section-encloser mb-20 mt-32 flex flex-col gap-24 sm:flex-row lg:mx-8'>
         <section className='about-hero-img relative mx-auto h-[20rem] w-[250px] sm:aspect-[0.66] sm:h-[20rem] sm:w-[unset] xl:h-[30rem]'>
+          <m.span
+            initial={{ scaleX: 1 }}
+            whileInView={{ scaleX: 0 }}
+            viewport={{ once: true, amount: 1 }}
+            transition={{ delay: 0.3, duration: 0.4 }}
+            className={`curtain absolute inset-0 z-[100] origin-left bg-slate-600`}
+          ></m.span>
           <div className='about-hero-img-placeholder relative z-10 h-full w-full bg-slate-600'>
             {/* hero image set on bg*/}
           </div>

@@ -60,9 +60,9 @@ export default function Footer() {
           onClick={() => {
             document.documentElement.scrollTop = 0
           }}
-          className='scroll-btn flex items-center gap-1 font-firaCode text-sm hover:underline lg:order-2'
+          className='scroll-btn group flex items-center gap-1 overflow-hidden font-firaCode text-sm lg:order-2'
         >
-          <span>
+          <span className='transition-all duration-300 group-hover:-translate-y-full'>
             <ArrowUp size={16} strokeWidth={'1.4px'} />
           </span>
           <span>{`scrollTop()`}</span>
@@ -73,7 +73,7 @@ export default function Footer() {
             Find me on
           </h4> */}
           <p className='flex gap-3'>
-            {social_handles.map((x,i) => {
+            {social_handles.map((x, i) => {
               if (x.enabled)
                 return (
                   <a href='#' key={x._id}>

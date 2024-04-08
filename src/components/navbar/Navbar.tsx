@@ -7,6 +7,7 @@ import Container from '../Container'
 import { useEffect } from 'react'
 import useGlobalStore from '../../state/GlobalState'
 import { Link, useLocation } from 'react-router-dom'
+import { motion as m } from 'framer-motion'
 
 export default function Navbar() {
   const navIsOpen = useGlobalStore((state) => state.navOpen)
@@ -37,7 +38,7 @@ export default function Navbar() {
         <section className='nav-body my-auto flex justify-between'>
           <div className='nav-links flex flex-col gap-8 lg:gap-10'>
             {navLinks.map((x, i) => (
-              <NavItem key={i} txt={x} />
+              <NavItem key={i} txt={x} factor={i * 1.2} />
             ))}
           </div>
           <div className='graphics relative me-[10vw] hidden grid-cols-2 grid-rows-2 gap-6 lg:grid'>
@@ -82,7 +83,7 @@ export default function Navbar() {
   )
 }
 
-function NavItem({ txt }: { txt: string[] }) {
+function NavItem({ txt, factor }: { txt: string[]; factor: number }) {
   const toggleNav = useGlobalStore((state) => state.togglenavOpen)
   const location = useLocation()
 
@@ -91,12 +92,23 @@ function NavItem({ txt }: { txt: string[] }) {
     toggleNav()
   }
   return (
-    <Link
-      to={txt[1]}
-      onClick={handleClick}
-      className='inline-block cursor-pointer text-center text-3xl font-light transition-all hover:text-white lg:text-left lg:text-6xl'
+    <m.span
+      initial={{ y: -30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      // viewport={{ once: true, amount: 0.4 }}
+      transition={{
+        delay: 0.24 * factor,
+        type: 'ease-in',
+        duration: 0.3,
+      }}
     >
-      {txt[0]}
-    </Link>
+      <Link
+        to={txt[1]}
+        onClick={handleClick}
+        className='inline-block cursor-pointer text-center text-3xl font-light transition-all hover:text-white lg:text-left lg:text-6xl'
+      >
+        {txt[0]}
+      </Link>
+    </m.span>
   )
 }
