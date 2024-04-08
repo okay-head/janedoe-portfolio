@@ -4,6 +4,7 @@ import H1 from '../../components/H1'
 import { Briefcase, MapPin } from 'react-feather'
 import { format } from 'fecha'
 import useGlobalStore from '../../state/GlobalState'
+import { motion as m } from 'framer-motion'
 
 export default function WorkHistory() {
   // const timeline = [
@@ -164,8 +165,9 @@ export default function WorkHistory() {
         ></span>
       </h2>
       <section className='work-cards-container mb-20 mt-12 flex flex-col gap-16 lg:my-16 lg:gap-5'>
-        {workTimeline.map((x) => {
-          if (x.enabled) return <Card key={x._id} x={x} />
+        {workTimeline.map((x, i) => {
+          // const factor = i / 4 < 3 ? i / 4 : 3
+          if (x.enabled) return <Card key={x._id} x={x} factor={i * 1.3} />
         })}
       </section>
     </Container>
@@ -173,14 +175,25 @@ export default function WorkHistory() {
 }
 
 //  --- WORK card ---
-function Card({ x }: { x: TTimeline }) {
+function Card({ x, factor }: { x: TTimeline; factor: number }) {
   const formatDate = (date: Date) => format(date, 'MMM YY')
 
   const startDate = new Date(x.startDate)
   const endDate = new Date(x.endDate)
 
   return (
-    <article id={x._id} className='timeline-card relative lg:ms-10 lg:w-max'>
+    <m.article
+      initial={{ y: -30, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        delay: 0.3 * factor,
+        type: 'ease-in',
+        duration: 0.8,
+      }}
+      id={x._id}
+      className='timeline-card relative lg:ms-10 lg:w-max'
+    >
       <span className='absolute -left-8 top-4 hidden aspect-square h-2 rounded-full bg-black lg:block'></span>
 
       <div className='work-card-container flex flex-col items-start gap-6 lg:flex-row'>
@@ -215,6 +228,6 @@ function Card({ x }: { x: TTimeline }) {
           </ul>
         </section>
       </div>
-    </article>
+    </m.article>
   )
 }
