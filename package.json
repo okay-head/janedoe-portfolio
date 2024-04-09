@@ -1,7 +1,8 @@
 {
-  "name": "framer-portfolio",
+  "name": "johndoe-framer-portfolio",
   "private": true,
   "version": "1.1.1",
+  "description": "An experimental portfolio site. Created by Shashwat Jaiswal, a developer based in India. Github: https://github.com/okay-head ",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,12 +17,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
-    "react-hook-form": "^7.51.2",
-    "react-responsive": "^9.0.2",
     "react-router-dom": "^6.22.2",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
-    "zod": "^3.22.4"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -37,10 +36,8 @@
     "postcss": "^8.4.32",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.9",
-    "react-hot-toast": "^2.4.1",
     "tailwindcss": "^3.3.6",
     "typescript": "^5.2.2",
-    "vite": "^5.2.8",
-    "zustand": "^4.4.7"
+    "vite": "^5.2.8"
   }
 }
