@@ -1,7 +1,7 @@
 <h1 align="center">John doe's portfolio</h1>
 <p align="center">
-    <a href="https://app.netlify.com/sites/okay-head/deploys" target="_blank">
-    <img alt="Netlify badge" src="https://api.netlify.com/api/v1/badges/fc92047a-3a46-46cb-9ddb-08be354c7989/deploy-status"/></a>
+    <a href="https://app.netlify.com/sites/portfoli0v2/deploys">
+    <img alt="Netlify badge" src="https://api.netlify.com/api/v1/badges/daa798bd-baee-4c49-8b85-4d22bec0998d/deploy-status"/></a>
      <a href="/LICENSE" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" /></a>
     <a href="https://twitter.com/shash0_0" target="_blank">
@@ -9,7 +9,7 @@
   </a>
 </p>
 
-> <p align="center">John Doe's portfolio. Designed in Figma.</p>
+<p align="center">Responsive portfolio. &nbsp;Speedran in <7days.&nbsp;Designed in Figma.</p>
 
 ## [Demo](https://portfoli0v2.netlify.app/)
 ![image](https://github.com/okay-head/johndoe-portfolio/assets/68184623/5d41061c-0a28-4bd9-9569-4326a47bb52e)
@@ -17,12 +17,17 @@
 
 ## Tech stack
 
-- **[React](https://react.dev/)** - for overhead and complexity of virtual dom
+- **[React](https://react.dev/)** - Messy library trying to be a framework
+- **[Typescript](https://www.typescriptlang.org/)** - type safety at the cost of headache
+- **[Framer motion](https://www.framer.com/motion/)** - animation library for react, terrible docs
 - **[Tailwindcss](https://tailwindcss.com/)** - utility first CSS
-- **[Framer motion](https://www.framer.com/motion/)** - animation library for react
+- **[Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)** - bearbones state management solution
+- **[Slick](https://kenwheeler.github.io/slick/)** - Simple and intutive slider library 
+
 
 #### Utilities
-
+- **[Feather icons](https://feathericons.com/)** - Customizable open source icons
+- **[Fecha](https://www.npmjs.com/package/fecha)** - Effortless date parsing
 - **[Prettier](https://prettier.io/)** - automatic class sorting
 - **[Vite](https://vitejs.dev/guide/why.html)** - blazingly fast module bundler
 - **[pnpm](https://pnpm.io/)** - performant npm, no dependancy resolution issues
@@ -57,8 +62,9 @@ pnpm dev
 
 ## Continued development
 
+- Toning down animations
 - Addition of more features
-- Nav animation
+- Nav animation lol
 
 ## Author
 
