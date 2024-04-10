@@ -6,7 +6,7 @@ import { Tool, GitHub, ExternalLink, XCircle } from 'react-feather'
 import SlantCurrentSvg from '../../assets/slant-bars-current'
 import { createContext, useContext, useEffect, useState } from 'react'
 import useGlobalStore from '../../state/GlobalState'
-import { motion as m } from 'framer-motion'
+import { AnimatePresence, motion as m } from 'framer-motion'
 
 export default function Projects() {
   const { projects }: { projects: TProject[] } = useGlobalStore(
@@ -57,13 +57,13 @@ function Card({ x, factor }: { x: TProject; factor: number }) {
     <ModalContext.Provider value={{ open, setOpen }}>
       <Modal x={x} />
       <m.article
-        initial={{ x: -30, opacity: 0 }}
+        initial={{ x: -15, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{
-          delay: 0.3 * factor,
+          delay: 0.2 * factor,
           type: 'ease-in',
-          duration: 0.8,
+          duration: 0.6,
         }}
         id={x._id}
         className='project-card group relative aspect-[1.6] border-2 border-black shadow-sm'
@@ -125,68 +125,77 @@ function Modal({ x }: { x: TProject }) {
 
   const techStack = x.techStack.join('|')
   return (
-    <div
-      className={`modal-wrapper fixed inset-0 z-[150] grid max-h-screen max-w-[100vw] place-content-center overflow-auto bg-black/50 px-4 ${open ? '' : 'hidden'}`}
-    >
-      <article
-        id={x._id}
-        className='project-modal group relative flex max-w-[50rem] flex-col gap-10 bg-white px-10 py-8 lg:min-h-[40rem]'
-      >
-        <button
-          className='modal-close'
-          onClick={() => {
-            setOpen(false)
-          }}
+    <AnimatePresence>
+      {open && (
+        <div
+          className={`modal-wrapper fixed inset-0 z-[150] grid max-h-screen max-w-[100vw] place-content-center overflow-auto bg-black/50 px-4`}
         >
-          <XCircle
-            strokeWidth={'1.4px'}
-            className='absolute -right-3 -top-3 w-[32px] lg:hidden'
-            fill='white'
-          />
-        </button>
+          <m.article
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ duration: 0.55, type: 'spring' }}
+            key={x._id + '-modal'}
+            id={x._id}
+            className='project-modal group relative mx-2 my-4 flex max-w-[50rem] flex-col gap-10 bg-white px-10 py-8 lg:min-h-[40rem]'
+          >
+            <button
+              className='modal-close'
+              onClick={() => {
+                setOpen(false)
+              }}
+            >
+              <XCircle
+                strokeWidth={'1.4px'}
+                className='absolute -right-3 -top-3 w-[32px] lg:hidden'
+                fill='white'
+              />
+            </button>
 
-        <button
-          id='modal-close'
-          className='absolute -top-10 left-1/2 hidden -translate-x-1/2 px-2 py-1 text-sm opacity-0 transition-all duration-300 hover:scale-x-[1.08] hover:scale-y-[1.08] group-hover:translate-y-16 group-hover:opacity-100 lg:block'
-          onClick={() => {
-            setOpen(false)
-          }}
-        >
-          <XCircle strokeWidth={'1.4px'} size={32} fill='white' />
-        </button>
-        <SlantCurrentSvg classVars='text-greenAccent-700 absolute bottom-[9px] right-[12.5px] aspect-square h-16 lg:h-20' />
-        <div className='card-header flex items-center justify-between'>
-          <h2 className='relative font-urbanist text-2xl lg:text-4xl'>
-            <span>{x.title}</span>
-            <span className='absolute -top-6 left-0 hidden font-firaCode text-xs text-text-lighter lg:inline-block'>
-              [ESC]
-            </span>
-          </h2>
-          <div className='icons flex gap-2'>
-            <a href={x.liveurl} rel='noopener noreferrer'>
-              <ExternalLink strokeWidth={'1.4px'} className='w-[32px]' />
-            </a>
-            <a href={x.githuburl} rel='noopener noreferrer'>
-              {' '}
-              <GitHub strokeWidth={'1.4px'} className='w-[32px]' />
-            </a>
-          </div>
+            <button
+              id='modal-close'
+              className='absolute -top-10 left-1/2 hidden -translate-x-1/2 px-2 py-1 text-sm opacity-0 transition-all duration-300 hover:scale-x-[1.1] hover:scale-y-[1.1] group-hover:translate-y-16 group-hover:opacity-100 lg:block'
+              onClick={() => {
+                setOpen(false)
+              }}
+            >
+              <XCircle strokeWidth={'1.4px'} size={32} fill='white' />
+            </button>
+            <SlantCurrentSvg classVars='text-greenAccent-700 absolute bottom-[9px] right-[12.5px] aspect-square h-16 lg:h-20' />
+            <div className='card-header flex items-center justify-between'>
+              <h2 className='relative font-urbanist text-2xl lg:text-4xl'>
+                <span>{x.title}</span>
+                <span className='absolute -top-6 left-0 hidden font-firaCode text-xs text-text-lighter lg:inline-block'>
+                  [ESC]
+                </span>
+              </h2>
+              <div className='icons flex gap-2'>
+                <a href={x.liveurl} rel='noopener noreferrer'>
+                  <ExternalLink strokeWidth={'1.4px'} className='w-[32px]' />
+                </a>
+                <a href={x.githuburl} rel='noopener noreferrer'>
+                  {' '}
+                  <GitHub strokeWidth={'1.4px'} className='w-[32px]' />
+                </a>
+              </div>
+            </div>
+            <div className='modal-card-body'>
+              <img
+                src={x.image.url}
+                alt=''
+                className='mx-auto aspect-[1.6] h-1/2 border-2 border-black lg:h-[20rem]'
+              />
+              <p className='desc mx-auto mt-8 text-justify lg:w-[calc(20*1.6rem)]'>
+                {x.description}
+              </p>
+            </div>
+            <div className='tech-stack flex items-center gap-2'>
+              <Tool strokeWidth={'1.4px'} className='w-[20px]' />
+              {techStack}
+            </div>
+          </m.article>
         </div>
-        <div className='modal-card-body'>
-          <img
-            src={x.image.url}
-            alt=''
-            className='mx-auto aspect-[1.6] h-1/2 border-2 border-black lg:h-[20rem]'
-          />
-          <p className='desc mx-auto mt-8 text-justify lg:w-[calc(20*1.6rem)]'>
-            {x.description}
-          </p>
-        </div>
-        <div className='tech-stack flex items-center gap-2'>
-          <Tool strokeWidth={'1.4px'} className='w-[20px]' />
-          {techStack}
-        </div>
-      </article>
-    </div>
+      )}
+    </AnimatePresence>
   )
 }

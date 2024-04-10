@@ -32,14 +32,14 @@ export default function Skills() {
 function Card({ x, factor }: { x: TSKills; factor: number }) {
   return (
     <m.article
-      initial={{ x: -30, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{
-        delay: 0.4 * factor,
-        type: 'ease-in',
-        duration: 0.6,
-      }}
+      // initial={{ x: -30, opacity: 0 }}
+      // whileInView={{ x: 0, opacity: 1 }}
+      // viewport={{ once: true, amount: 0.3 }}
+      // transition={{
+      //   delay: 0.4 * factor,
+      //   type: 'ease-in',
+      //   duration: 0.6,
+      // }}
       id={x._id}
       className='skill-card flex flex-col gap-8 p-5'
     >
@@ -51,15 +51,25 @@ function Card({ x, factor }: { x: TSKills; factor: number }) {
         </div>
       </div>
       <div className='progress-bar-container relative border border-black bg-white'>
-        <span className='absolute right-0 top-[-24px] font-firaCode text-sm'>
+        <m.span
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{
+            delay: 0.35 * factor,
+            type: 'ease-in',
+            duration: 0.4,
+          }}
+          className='absolute right-0 top-[-24px] font-firaCode text-sm'
+        >
           {x.percentage}%
-        </span>
+        </m.span>
         <m.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: x.percentage / 100 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{
-            delay: 0.4 * factor,
+            delay: 0.2 * factor,
             type: 'back-in-out',
             duration: 0.6,
           }}
