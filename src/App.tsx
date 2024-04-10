@@ -1,6 +1,7 @@
 import Navbar from './components/navbar/Navbar'
 import Home from './pages/home/Home'
-import hamburger from '/src/assets/hamburger-bars.svg'
+import hamburger from './assets/hamburger-bars.svg'
+import cross from './assets/cross.svg'
 import useGlobalStore from './state/GlobalState'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import NotFound from './pages/NotFound'
@@ -65,7 +66,15 @@ export default function App() {
           onClick={toggleNav}
           className='nav-toggle fixed right-6 top-5 z-[60] h-12 w-12 lg:right-20 lg:top-9'
         >
-          <img src={hamburger} alt='Open Menu' />
+          {navIsOpen ? (
+            <img
+              src={cross}
+              alt='Close Menu'
+              className='mt-6 rotate-180 lg:mt-3'
+            />
+          ) : (
+            <img src={hamburger} alt='Open Menu' />
+          )}
         </button>
         {navIsOpen && <Navbar />}
 
