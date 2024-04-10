@@ -1,6 +1,5 @@
 import Container from '../../components/Container'
 import H1 from '../../components/H1'
-import DecoratorGroup from '../../components/DecoratorGroup'
 import useGlobalStore from '../../state/GlobalState'
 import Heading1Wrapper from '../../components/animation/Heading1Wrapper'
 import { motion as m } from 'framer-motion'
@@ -13,9 +12,7 @@ export default function About() {
       <H1 desc='Get acquainted with me' accentColor='bg-teal-base-700'>
         About
       </H1>
-      <DecoratorGroup classVars='lg:!bottom-[0px]' />
-
-      <div className='section-encloser mb-20 mt-32 flex flex-col gap-24 sm:flex-row lg:mx-8'>
+      <div className='section-encloser mt-32 flex flex-col gap-24 sm:flex-row lg:mx-8'>
         <section className='about-hero-img relative mx-auto h-[20rem] w-[250px] sm:aspect-[0.66] sm:h-[20rem] sm:w-[unset] xl:h-[30rem]'>
           <m.span
             initial={{ scaleX: 1 }}

@@ -40,7 +40,12 @@ export default function WorkHistory() {
           if (i === 0 || i === 1) duration = 0
           if (x.enabled)
             return (
-              <Card key={x._id} x={x} factor={i * 1.3} duration={duration} />
+              <Card
+                key={x._id}
+                x={x}
+                factor={duration * 1.3}
+                duration={duration}
+              />
             )
         })}
       </section>

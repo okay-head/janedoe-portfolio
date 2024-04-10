@@ -187,7 +187,7 @@ function Modal({ x }: { x: TProject }) {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            transition={{ duration: 0.55, type: 'spring' }}
+            transition={{ duration: 0.48, type: 'spring' }}
             key={x._id + '-modal'}
             id={x._id}
             className='project-modal group relative mx-2 my-4 flex max-w-[50rem] flex-col gap-10 bg-white px-10 py-8 lg:min-h-[40rem]'

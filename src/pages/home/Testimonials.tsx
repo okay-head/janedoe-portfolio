@@ -114,7 +114,7 @@ export default function Testimonials() {
   }
   return (
     <Container>
-      <H1 desc='Garnering trust along the way'>Testimonials</H1>
+      <H1 desc='+ve reviews'>Testimonials</H1>
 
       {/* <div className='testimonial-cards-container mx-auto flex max-w-screen-2xl flex-col items-start gap-8 overflow-x-auto lg:flex-row'> */}
       <div className='testimonial-cards-container mx-auto mt-24'>
