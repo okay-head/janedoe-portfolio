@@ -7,8 +7,8 @@ type T = {
   accentColor?: string
 }
 const x = [
-  'bottom-[-25%] lg:bottom-[-10%] right-[0%] !text-xs',
-  'left-[0%] top-[-47%] !text-xs',
+  'bottom-[-50%] lg:bottom-[-15%] right-[0%] !text-xs',
+  'left-[0%] top-[-55%] !text-xs',
 ]
 
 export default function H1({
@@ -20,7 +20,7 @@ export default function H1({
 }: TChild & T) {
   const currentColor = accentColor
   return (
-    <div className='h1-container my-16 flex gap-4 lg:mb-[calc(5rem-0.375rem)] lg:mt-10 '>
+    <div className='h1-container my-16 flex gap-4 lg:mb-[calc(5rem-0.375rem)] lg:mt-5 '>
       <div className='h1-animated-container relative w-max overflow-hidden pb-1.5'>
         <m.h1
           initial={{ y: 20, opacity: 0 }}
@@ -42,7 +42,7 @@ export default function H1({
           className={`curtain absolute inset-0 origin-bottom ${currentColor}`}
         ></m.span>
       </div>
-      <div className='relative ms-auto'>
+      <div className='relative ms-auto mt-5'>
         <Decorators text={text[0]} position={position[1]} />
         <Decorators text={text[1]} position={position[0]} />
         <span>{desc}</span>
