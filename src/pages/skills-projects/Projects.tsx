@@ -8,12 +8,24 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import useGlobalStore from '../../state/GlobalState'
 import { AnimatePresence, motion as m } from 'framer-motion'
 
+// 14/15 projects contain React as a tech stack, not adding filter for it
+type TFilter = 'all' | 'Nextjs' | 'TailwindCSS' | 'Mern'
+
 export default function Projects() {
   const { projects }: { projects: TProject[] } = useGlobalStore(
     (state) => state.userObj,
   )
+  const filterOptions = ['all', 'Nextjs', 'TailwindCSS', 'Mern'] as const
+  const [filter, setFilter] = useState<TFilter>('all')
 
-  const sortedProjects = projects.sort((x, y) => x.sequence - y.sequence)
+  let sortedProjects = projects.sort((x, y) => x.sequence - y.sequence)
+  console.log(sortedProjects)
+
+  if (filter !== 'all') {
+    sortedProjects = sortedProjects.filter((x) =>
+      x.techStack.find((el) => el.trim() === filter),
+    )
+  }
 
   return (
     <Container background='bg-greenAccent-150 min-h-screen lg:py-14'>
@@ -21,6 +33,16 @@ export default function Projects() {
         Projects
       </H1>
       <Decorators />
+      <div className='filter-btn-group mx-auto mb-8 flex flex-wrap gap-3 lg:max-w-max'>
+        {filterOptions.map((x) => (
+          <FilterButton
+            key={x + '-button'}
+            x={x}
+            filter={filter}
+            setFilter={setFilter}
+          />
+        ))}
+      </div>
       <section className='projects-container mb-24 flex flex-col gap-10 sm:grid sm:grid-cols-2 lg:mb-16 lg:grid-cols-4'>
         {sortedProjects.map((x, i) => {
           const factor = i / 4 < 3 ? i / 4 : 3
@@ -28,6 +50,37 @@ export default function Projects() {
         })}
       </section>
     </Container>
+  )
+}
+
+function FilterButton({
+  x,
+  filter,
+  setFilter,
+}: {
+  x: TFilter
+  filter: TFilter
+  setFilter: React.Dispatch<React.SetStateAction<TFilter>>
+}) {
+  const selected = filter == x
+  return (
+    <button
+      onClick={() => {
+        setFilter(x)
+      }}
+      id={x}
+      className={`relative border border-black bg-white px-6 py-2 text-sm font-medium transition-all ${selected ? 'text-white' : ''}`}
+    >
+      <span className='relative z-10'>{x.toUpperCase()}</span>
+
+      {selected && (
+        <m.span
+          layoutId='pill-tab'
+          transition={{ type: 'spring', duration: 0.5 }}
+          className='absolute inset-0 z-0 bg-black'
+        ></m.span>
+      )}
+    </button>
   )
 }
 
