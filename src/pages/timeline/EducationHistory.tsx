@@ -30,7 +30,8 @@ export default function EducationHistory() {
       </h2>
       <section className='education-cards-container mb-20 mt-12 flex flex-col gap-16 lg:my-16 lg:gap-5'>
         {educationTimeline.map((x, i) => {
-          if (x.enabled) return <Card key={x._id} x={x} factor={i * 1.3} />
+          if (x.enabled)
+            return <Card key={x._id} x={x} factor={i * 1.3} i={i} />
         })}
       </section>
     </Container>
@@ -38,7 +39,7 @@ export default function EducationHistory() {
 }
 
 //  --- education card ---
-function Card({ x, factor }: { x: TTimeline; factor: number }) {
+function Card({ x, factor, i }: { x: TTimeline; factor: number; i: number }) {
   const formatDate = (date: Date) => format(date, 'MMM YY')
 
   const startDate = new Date(x.startDate)
@@ -57,6 +58,18 @@ function Card({ x, factor }: { x: TTimeline; factor: number }) {
       id={x._id}
       className='timeline-card relative w-full lg:me-12'
     >
+      <m.div
+        initial={{ scaleY: '0%', opacity: 0 }}
+        whileInView={{ scaleY: '100%', opacity: 1 }}
+        viewport={{ once: true, amount: 0.7 }}
+        transition={{
+          delay: 0.3 * ++factor,
+          type: 'ease-in-out',
+          duration: 0.8,
+        }}
+        //very hacky solution: we using the divs of the next elements. Ideally should create a trigger that rests on the next element and triggers the bars of the current element
+        className={`absolute -right-[1.85rem] top-[-100%] h-[calc(103%)] w-[3px] origin-top bg-black shadow-sm ${i == 0 ? 'hidden' : ''} ${i == 1 ? 'top-[-68%] !h-[70%]' : ''}`}
+      ></m.div>
       <span className='absolute -right-8 top-4 hidden aspect-square h-2 rounded-full bg-black lg:block'></span>
 
       <div className='education-card-container flex flex-col items-start gap-6 lg:flex-row'>
