@@ -9,10 +9,15 @@ import Footer from './components/footer/Footer'
 import SKillsProjects from './pages/skills-projects/SkillsProjects'
 import TimeLine from './pages/timeline/Timeline'
 import Contact from './pages/contact/Contact'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Loader from './components/Loader'
 
 export default function App() {
+  // Todo: run loader once per session
+  // const [firstVisit, setFirstVisit] = useState(true)
+  // console.log({ firstVisit })
+
+  const [loader, setLoader] = useState(true)
   const {
     userObj,
     setUserObj,
@@ -20,6 +25,12 @@ export default function App() {
     togglenavOpen: toggleNav,
   } = useGlobalStore()
 
+  // useLayoutEffect(() => {
+  //   const getLocal = localStorage.getItem('FirstVisit')
+  //   if (getLocal == null) {
+  //     localStorage.setItem('FirstVisit', 'value')
+  //   } else setFirstVisit(false)
+  // }, [])
   // custom hook is causing infinite renders
   const url =
     'https://portfolio-backend-30mp.onrender.com/api/v1/get/user/65b3a22c01d900e96c4219ae'
@@ -56,9 +67,22 @@ export default function App() {
     }
   }, [url, setUserObj])
 
+  useEffect(() => {
+    const wait = new Promise((resolve) => {
+      setTimeout(() => {
+        console.log('timer is running...')
+        return resolve('')
+      }, 3200)
+    })
+
+    wait.then(() => {
+      setLoader(false)
+    })
+    return () => {}
+  }, [])
   // useobj is a globalstate
 
-  if (userObj == null) return <Loader />
+  if (loader || userObj == null) return <Loader />
   else
     return (
       <BrowserRouter>
