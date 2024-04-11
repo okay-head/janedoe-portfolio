@@ -1,45 +1,52 @@
 import { useAnimate } from 'framer-motion'
+import { useLayoutEffect } from 'react'
 
 export default function Loader() {
   const [scope, animate] = useAnimate()
 
-  async function handleAnimation() {
-    // -- box size up --
-    await animate(
-      '#loader',
-      {
-        opacity: [0, 1],
-        width: [0, '10vw'],
-        height: [0, '10vw'],
-      },
-      {
-        // type: 'spring',
-        ease: 'easeInOut',
-        // stiffness: 300,
-        // damping: 50,
-        duration: 2,
-      },
-    )
+  useLayoutEffect(() => {
+    async function handleAnimation() {
+      // -- box size up --
+      await animate(
+        '#loader',
+        {
+          opacity: [0, 1],
+          width: [0, '10vw'],
+          height: [0, '10vw'],
+        },
+        {
+          // type: 'spring',
+          ease: 'easeInOut',
+          // stiffness: 300,
+          // damping: 50,
+          duration: 0.9,
+        },
+      )
 
-    // back shadow
-    await animate('.btn-ouline', { y: [0, 30], x: [0, 50] }, { duration: 1 })
-    await animate(
-      '#wrapper',
-      { backgroundColor: 'black' },
-      { duration: 1, ease: 'easeInOut' },
-    )
-    await animate(
-      '#loader',
-      { backgroundColor: 'transparent', borderColor: 'white' },
-      { duration: 1 },
-    )
-    animate(
-      '.btn-ouline',
-      { backgroundColor: 'transparent', borderColor: 'white' },
-      { duration: 1 },
-    )
-  }
-  handleAnimation()
+      // back shadow
+      await animate(
+        '.btn-ouline',
+        { y: [0, 30], x: [0, 60] },
+        { duration: 0.8 },
+      )
+      animate(
+        '#wrapper',
+        { backgroundColor: '#000000' },
+        { duration: 1, ease: 'easeInOut' },
+      )
+      animate(
+        '#loader',
+        { backgroundColor: '#00000000', borderColor: '#ffffff' },
+        { duration: 1 },
+      )
+      animate(
+        '.btn-ouline',
+        { backgroundColor: '#00000000', borderColor: '#ffffff' },
+        { duration: 1.1 },
+      )
+    }
+    handleAnimation()
+  }, [scope, animate])
 
   return (
     <div
