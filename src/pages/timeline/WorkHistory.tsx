@@ -93,7 +93,7 @@ function Card({
           type: 'ease-in-out',
           duration: 0.8,
         }}
-        className={`absolute -left-[1.85rem] top-[-100%] h-[calc(100%)] w-[3px] origin-top bg-black shadow-sm ${i == 0 ? 'hidden' : ''}`}
+        className={`absolute -left-[1.85rem] top-[-100%] hidden h-[calc(100%)] w-[3px] origin-top bg-black shadow-sm ${i == 0 ? 'hidden' : 'lg:block'}`}
       ></m.div>
       <span className='absolute -left-8 top-4 hidden aspect-square h-2 rounded-full bg-black lg:block'></span>
 

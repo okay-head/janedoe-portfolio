@@ -68,7 +68,7 @@ function Card({ x, factor, i }: { x: TTimeline; factor: number; i: number }) {
           duration: 0.8,
         }}
         //very hacky solution: we using the divs of the next elements. Ideally should create a trigger that rests on the next element and triggers the bars of the current element
-        className={`absolute -right-[1.85rem] top-[-100%] h-[calc(103%)] w-[3px] origin-top bg-black shadow-sm ${i == 0 ? 'hidden' : ''} ${i == 1 ? 'top-[-68%] !h-[70%]' : ''}`}
+        className={`absolute -right-[1.85rem] top-[-100%] hidden h-[calc(103%)] w-[3px] origin-top bg-black shadow-sm ${i == 0 ? 'hidden' : 'lg:block'} ${i == 1 ? 'top-[-68%] !h-[70%]' : ''}`}
       ></m.div>
       <span className='absolute -right-8 top-4 hidden aspect-square h-2 rounded-full bg-black lg:block'></span>
 
