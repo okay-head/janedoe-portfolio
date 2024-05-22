@@ -1,4 +1,4 @@
-<h1 align="center">John doe's portfolio</h1>
+<h1 align="center">Jane doe's portfolio</h1>
 <p align="center">
     <a href="https://app.netlify.com/sites/portfoli0v2/deploys">
     <img alt="Netlify badge" src="https://api.netlify.com/api/v1/badges/daa798bd-baee-4c49-8b85-4d22bec0998d/deploy-status"/></a>
@@ -12,8 +12,8 @@
 <p align="center">Responsive portfolio. &nbsp;Speedran in <7days.&nbsp;Designed in Figma.</p>
 
 ## [Demo](https://portfoli0v2.netlify.app/)
-![image](https://github.com/okay-head/johndoe-portfolio/assets/68184623/5d41061c-0a28-4bd9-9569-4326a47bb52e)
 
+![image](https://github.com/okay-head/johndoe-portfolio/assets/68184623/5d41061c-0a28-4bd9-9569-4326a47bb52e)
 
 ## Tech stack
 
@@ -22,10 +22,10 @@
 - **[Framer motion](https://www.framer.com/motion/)** - animation library for react, terrible docs
 - **[Tailwindcss](https://tailwindcss.com/)** - utility first CSS
 - **[Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)** - bearbones state management solution
-- **[Slick](https://kenwheeler.github.io/slick/)** - Simple and intutive slider library 
-
+- **[Slick](https://kenwheeler.github.io/slick/)** - Simple and intutive slider library
 
 #### Utilities
+
 - **[Feather icons](https://feathericons.com/)** - Customizable open source icons
 - **[Fecha](https://www.npmjs.com/package/fecha)** - Effortless date parsing
 - **[Prettier](https://prettier.io/)** - automatic class sorting
@@ -84,4 +84,5 @@ Copyright © 2023 [Shashwat Jaiswal](https://github.com/okay-head).<br />
 This project is [MIT](/LICENSE) licensed.
 
 ## Acknowledgements
+
 Thank you [Portfoliyo](https://www.theportfolyo.com/) for giving me the opportunity to work on this project
