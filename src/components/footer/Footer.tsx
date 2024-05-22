@@ -90,7 +90,7 @@ export default function Footer() {
           </p>
         </div>
         <div className='copyright text-center lg:order-3'>
-          <p className='mb-1'>Copyright 2024 © John Doe</p>
+          <p className='mb-1'>Copyright 2024 © Jane doe</p>
           <p>All rights reserved</p>
         </div>
       </section>

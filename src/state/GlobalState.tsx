@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
+import data from '../data/data.ts'
 
 type TColor =
   | 'teal-base-700'
@@ -23,7 +24,7 @@ const useGlobalStore = create<T>()(
   persist(
     (set) => ({
       navOpen: false,
-      userObj: null,
+      userObj: data.user,
       currentColor: 'teal-base-700',
       togglenavOpen: () => set((state) => ({ navOpen: !state.navOpen })),
       setUserObj: (payload) => set(() => ({ userObj: payload })),

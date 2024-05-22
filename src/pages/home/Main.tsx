@@ -65,7 +65,7 @@ export default function Main() {
                 }
               />
               <Heading1Wrapper
-                text={`john doe`}
+                text={`Jane doe`}
                 classVars={
                   'font-urbanist text-6xl font-semibold uppercase lg:text-8xl'
                 }
