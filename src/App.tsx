@@ -9,8 +9,8 @@ import Footer from './components/footer/Footer'
 import SKillsProjects from './pages/skills-projects/SkillsProjects'
 import TimeLine from './pages/timeline/Timeline'
 import Contact from './pages/contact/Contact'
-import { useEffect, useState } from 'react'
-import Loader from './components/Loader'
+// import { useEffect, useState } from 'react'
+// import Loader from './components/Loader'
 
 export default function App() {
   // Todo: run loader once per session
