@@ -13,7 +13,9 @@
 
 ## [Demo](https://portfoli0v2.netlify.app/)
 
-![image](https://github.com/okay-head/johndoe-portfolio/assets/68184623/5d41061c-0a28-4bd9-9569-4326a47bb52e)
+![Screenshot 2024-06-01 at 13-42-38 Portfolio](https://github.com/okay-head/janedoe-portfolio/assets/68184623/48420017-655b-4324-8c21-e3421c5e9bfd)
+
+
 
 ## Tech stack
 
