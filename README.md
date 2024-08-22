@@ -85,6 +85,4 @@ Give a ⭐️ if you liked this project!
 Copyright © 2023 [Shashwat Jaiswal](https://github.com/okay-head).<br />
 This project is [MIT](/LICENSE) licensed.
 
-## Acknowledgements
 
-Thank you [Portfoliyo](https://www.theportfolyo.com/) for giving me the opportunity to work on this project
